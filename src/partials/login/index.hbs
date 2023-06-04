@@ -2,12 +2,12 @@
   <div class="login__container">
     <h1 class="login__header">Вход</h1>
     <form class="login__form">
-      <label for="login" class="login__label">Логин</label>
-      <input class="login__input" id="login" name="login" type="text" />
-      <label for="password" class="login__label">Пароль</label>
-      <input class="login__input" id="password" name="password" type="password" />
-      <button class="login__button">Логин</button>
-      <a class="login__link" href="#">Зарегистрироваться</a>
+      {{> input/index label=login.loginInput.label class=login.loginInput.class type=login.loginInput.type
+      name=login.loginInput.name }}
+      {{> input/index label=login.passwordInput.label class=login.passwordInput.class type=login.passwordInput.type
+      name=login.passwordInput.name }}
+      {{> button/index text=login.loginButton.text class=login.loginButton.class type=login.loginButton.type }}
+      {{> link/index class=login.loginLink.class href=login.loginLink.href text=login.loginLink.text }}
     </form>
   </div>
 </main>
