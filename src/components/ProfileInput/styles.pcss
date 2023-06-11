@@ -1,0 +1,40 @@
+.profile-input{
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-input__label{
+  text-align:left;
+  font-family: $fontFamily;
+  font-weight: 500;
+  color:  #1E1E1E;
+  font-size: 13px;
+  line-height: 13px;
+  margin-bottom: 4px;
+}
+
+.profile-input__label[disabled]{
+  margin-bottom: -18px;
+ }
+
+
+.profile-input__input{
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #EAEAEA;
+  outline: none;
+  background-color: transparent;
+}
+
+.profile-input__input:disabled{
+  font-family: $fontFamily;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: right;
+  color: #999999;
+  padding-bottom:10px;
+ }
+ .profile-input__input:disabled+label{
+  color: red
+ }
