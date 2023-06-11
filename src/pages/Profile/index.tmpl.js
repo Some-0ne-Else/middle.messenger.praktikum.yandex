@@ -8,6 +8,22 @@ export const profileTemplate = `<main class="profile">
 <input class="profile__avatar-input" class="my" id="avatar" name="avatar" type="file"/>
 <form class="profile__form">
 {{{profileEmail}}}
+{{{profileLogin}}}
+{{{profileName}}}
+{{{profileSurname}}}
+{{{profileDisplayName}}}
+{{{profilePhone}}}
+<div class="profile__links">
+<div class="profile__change-data">
+{{{changeDataLink}}}
+</div>
+<div class="profile__change-data">
+{{{changePasswordLink}}}
+</div>
+<div class="profile__logout">
+{{{logoutLink}}}
+</div>
+</div>
 </form>
   </div>
 </div>
