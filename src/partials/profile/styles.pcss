@@ -1,0 +1,68 @@
+.profile{
+  display: flex;
+  width: 100%;
+}
+
+.profile__aside{
+  width: 64px;
+  background: #FBFBFB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  border-right: 1px #EAEAEA solid;
+}
+
+.profile__content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__container{
+  display: flex;
+  flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__avatar-label{
+  margin-top: 60px;
+  width: 130px;
+  height: 130px;
+  cursor: pointer;
+  display: block;
+  background-color:#EFEFEF;
+  border-radius: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.profile__avatar-label:hover{
+  background: #000000;
+  opacity: 0.5;
+}
+
+.profile__avatar-label:hover::after{
+  position: absolute;
+  content: 'Поменять аватар';
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 14px;
+  text-align: center;
+  color: white;
+}
+
+.profile__avatar-input{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}

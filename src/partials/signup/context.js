@@ -13,14 +13,14 @@ const loginInput = {
 
 const nameInput = {
   class: "signup__wrapper",
-  name: "name",
+  name: "first_name",
   label: "Имя",
   type: "text"
 }
 
 const surnameInput = {
   class: "signup__wrapper",
-  name: "surname",
+  name: "second_name",
   label: "Фамилия",
   type: "text"
 }
