@@ -6,6 +6,7 @@ export const profileTemplate = `<main class="profile">
   <div class="profile__container">
 <label for="avatar" class="profile__avatar-label"><img src={{emptyAvatarUrl}} /></label>
 <input class="profile__avatar-input" class="my" id="avatar" name="avatar" type="file"/>
+<h1 class="profile__header">{{profileHeader}}</h1>
 <form class="profile__form">
 {{{profileEmail}}}
 {{{profileLogin}}}

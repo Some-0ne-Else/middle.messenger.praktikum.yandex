@@ -9,8 +9,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
   border-right: 1px #EAEAEA solid;
+  min-height: 100vh;
 }
 
 .profile__back-button{
@@ -23,8 +23,8 @@
 }
 
 .profile__form{
-width: 510px;
-margin-top: 100px;
+  width: 510px;
+  margin-top: 60px;
 }
 
 .profile__content{
@@ -52,7 +52,6 @@ margin-top: 100px;
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease-in-out;
-
 }
 
 .profile__avatar-label:hover{
@@ -71,6 +70,16 @@ margin-top: 100px;
   text-align: center;
   color: white;
 }
+
+.profile__header{
+  font-family: $fontFamily;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  color: $defaultTextColor;
+  margin-top: 20px;
+  }
 
 .profile__avatar-input{
   width: 0.1px;

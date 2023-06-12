@@ -53,7 +53,7 @@ const profilePhone = {
 
 
 const profileSaveButton = {
-  className: "",
+  className: "profile-edit__save-button",
   type: "submit",
   text: "Сохранить"
 }

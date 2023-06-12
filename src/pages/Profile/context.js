@@ -3,6 +3,10 @@ import { Link } from "../../components/Link";
 import backImageUrl from "../../static/arrow_back.png";
 import emptyAvatarUrl from "../../static/empty_avatar.png";
 
+const profileHeader = {
+  header: "Иван"
+}
+
 const profileEmail = {
   className: "",
   name: "email",
@@ -76,6 +80,7 @@ const logoutLink = {
 };
 
 export const profileContext = {
+  profileHeader: profileHeader.header,
   profileEmail: ProfileInput(profileEmail),
   profileLogin: ProfileInput(profileLogin),
   profileName: ProfileInput(profileName),

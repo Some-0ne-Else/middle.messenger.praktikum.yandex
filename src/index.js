@@ -8,6 +8,9 @@ import { NotFoundPage } from './pages/NotFound';
 import { SignupPage } from './pages/Signup';
 import { ProfilePage } from './pages/Profile';
 import { ProfileEditPage } from './pages/ProfileEdit';
+import { ProfilePasswordPage } from './pages/ProfilePassword';
+import { ChatListPage } from './pages/ChatList';
+import { IntroPage } from './pages/IntroPage';
 
 document.addEventListener("DOMContentLoaded", ()=>{
   const root = document.querySelector('#app');
@@ -28,11 +31,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
       case '/profile-edit':{
         return ProfileEditPage()
       }
+      case '/profile-password':{
+        return ProfilePasswordPage()
+      }
+      case '/chat-list':{
+        return ChatListPage()
+      }
       case '/emulate500':{
         return InternalErrorPage()
       }
       case '/':{
-        return SignupPage()
+        return IntroPage()
       }
       default:
         return NotFoundPage();
