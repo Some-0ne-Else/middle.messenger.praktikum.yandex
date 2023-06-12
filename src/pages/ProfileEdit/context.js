@@ -1,5 +1,5 @@
 import { ProfileInput } from "../../components/ProfileInput";
-import { Link } from "../../components/Link";
+import { Button } from "../../components/Button";
 import backImageUrl from "../../static/arrow_back.png";
 import emptyAvatarUrl from "../../static/empty_avatar.png";
 
@@ -8,7 +8,6 @@ const profileEmail = {
   name: "email",
   type: "email",
   label: "Почта",
-  disabled: "disabled",
   value: "pochta@yandex.ru",
 };
 
@@ -17,7 +16,6 @@ const profileLogin = {
   name: "login",
   type: "text",
   label: "Логин",
-  disabled: "disabled",
   value: "ivanivanov",
 };
 
@@ -26,7 +24,6 @@ const profileName = {
   name: "first_name",
   type: "text",
   label: "Имя",
-  disabled: "disabled",
   value: "Иван",
 };
 
@@ -35,7 +32,6 @@ const profileSurname = {
   name: "second_name",
   type: "text",
   label: "Фамилия",
-  disabled: "disabled",
   value: "Иванов",
 };
 
@@ -44,7 +40,6 @@ const profileDisplayName = {
   name: "display_name",
   type: "text",
   label: "Имя в чате",
-  disabled: "disabled",
   value: "Иванов",
 };
 
@@ -53,38 +48,25 @@ const profilePhone = {
   name: "phone",
   type: "text",
   label: "Телефон",
-  disabled: "disabled",
   value: "+7(909)9673030",
 };
 
-const changeDataLink = {
-  className: 'profile__link',
-   href: "#",
-   text: "Изменить данные"
-};
 
-const changePasswordLink = {
-  className: 'profile__link',
-   href: "#",
-   text: "Изменить пароль"
-};
+const profileSaveButton = {
+  className: "",
+  type: "submit",
+  text: "Сохранить"
+}
 
-const logoutLink = {
-  className: 'profile__link_red',
-   href: "#",
-   text: "Выйти"
-};
 
-export const profileContext = {
+export const profileEditContext = {
   profileEmail: ProfileInput(profileEmail),
   profileLogin: ProfileInput(profileLogin),
   profileName: ProfileInput(profileName),
   profileSurname: ProfileInput(profileSurname),
   profileDisplayName: ProfileInput(profileDisplayName),
   profilePhone: ProfileInput(profilePhone),
-  changeDataLink: Link(changeDataLink),
-  changePasswordLink: Link(changePasswordLink),
-  logoutLink: Link(logoutLink),
+  profileSaveButton: Button(profileSaveButton),
   backImageUrl: backImageUrl,
   emptyAvatarUrl: emptyAvatarUrl,
 };

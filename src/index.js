@@ -7,6 +7,7 @@ import { InternalErrorPage } from './pages/InternalError';
 import { NotFoundPage } from './pages/NotFound';
 import { SignupPage } from './pages/Signup';
 import { ProfilePage } from './pages/Profile';
+import { ProfileEditPage } from './pages/ProfileEdit';
 
 document.addEventListener("DOMContentLoaded", ()=>{
   const root = document.querySelector('#app');
@@ -23,6 +24,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
       }
       case '/profile':{
         return ProfilePage()
+      }
+      case '/profile-edit':{
+        return ProfileEditPage()
       }
       case '/emulate500':{
         return InternalErrorPage()
