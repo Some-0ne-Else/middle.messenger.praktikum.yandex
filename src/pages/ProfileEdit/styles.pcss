@@ -1,0 +1,92 @@
+.profile-edit{
+  display: flex;
+  width: 100%;
+}
+
+.profile-edit__aside{
+  width: 64px;
+  background: #FBFBFB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px #EAEAEA solid;
+  min-height: 100vh;
+}
+
+.profile-edit__back-button{
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.profile-edit__form{
+width: 510px;
+margin-top: 100px;
+}
+
+.profile-edit__content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-edit__container{
+  display: flex;
+  flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-edit__avatar-label{
+  margin-top: 60px;
+  width: 130px;
+  height: 130px;
+  cursor: pointer;
+  display: block;
+  background-color:#EFEFEF;
+  border-radius: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.profile-edit__avatar-label:hover{
+  background: #000000;
+  opacity: 0.5;
+}
+
+.profile-edit__avatar-label:hover::after{
+  position: absolute;
+  content: 'Поменять аватар';
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 14px;
+  text-align: center;
+  color: white;
+}
+
+.profile-edit__avatar-input{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.profile-edit__actions{
+  margin-top:60px;
+  display:flex;
+  justify-content: center;
+}
+
+.profile-edit__save-button{
+  width: 280px;
+}
