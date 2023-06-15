@@ -15,7 +15,7 @@ import { IntroPage } from './pages/IntroPage';
 document.addEventListener("DOMContentLoaded", ()=>{
   const root = document.querySelector('#app');
 
-  root.innerHTML = '';
+  root!.innerHTML = '';
 
   const getPage =() => {
     switch(window.location.pathname) {
@@ -48,6 +48,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
   }
 
-  root.innerHTML = getPage();
+  root!.innerHTML = getPage();
 
 })
