@@ -1,1 +1,3 @@
-export const buttonTemplate = `<button class="button {{className}}" type={{type}}>{{text}}</button>`
+const buttonTemplate = '<button class="button {{className}}" type={{type}}>{{text}}</button>';
+
+export default buttonTemplate;
