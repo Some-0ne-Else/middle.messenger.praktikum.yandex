@@ -1,4 +1,4 @@
-export const loginTemplate =`
+const loginTemplate = `
 <main class="login">
   <div class="login__container">
     <h1 class="login__header">Вход</h1>
@@ -10,4 +10,6 @@ export const loginTemplate =`
     </form>
   </div>
 </main>
-`
+`;
+
+export default loginTemplate;

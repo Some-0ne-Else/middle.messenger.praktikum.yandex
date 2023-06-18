@@ -1,4 +1,4 @@
-export const profileEditTemplate = `<main class="profile-edit">
+const profileEditTemplate = `<main class="profile-edit">
   <aside class="profile-edit__aside">
   <button class="profile-edit__back-button"><img src={{backImageUrl}} /></button>
   </aside>
@@ -19,4 +19,6 @@ export const profileEditTemplate = `<main class="profile-edit">
 </form>
   </div>
 </div>
-</main>`
+</main>`;
+
+export default profileEditTemplate;

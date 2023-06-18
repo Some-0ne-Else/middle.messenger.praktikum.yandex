@@ -1,4 +1,4 @@
-export const profilePasswordTemplate = `<main class="profile-password">
+const profilePasswordTemplate = `<main class="profile-password">
   <aside class="profile-password__aside">
   <button class="profile-password__back-button"><img src={{backImageUrl}} /></button>
   </aside>
@@ -16,4 +16,5 @@ export const profilePasswordTemplate = `<main class="profile-password">
 </form>
   </div>
 </div>
-</main>`
+</main>`;
+export default profilePasswordTemplate;

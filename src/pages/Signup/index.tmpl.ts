@@ -1,4 +1,4 @@
-export const signupTemplate =`<main class="signup">
+const signupTemplate = `<main class="signup">
   <div class="signup__container">
     <h1 class="signup__header">Регистрация</h1>
     <form class="signup__form">
@@ -13,4 +13,6 @@ export const signupTemplate =`<main class="signup">
 {{{signupLink}}}
     </form>
   </div>
-</main>`
+</main>`;
+
+export default signupTemplate;

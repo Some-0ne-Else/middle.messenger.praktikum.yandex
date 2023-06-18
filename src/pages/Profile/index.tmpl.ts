@@ -1,4 +1,4 @@
-export const profileTemplate = `<main class="profile">
+const profileTemplate = `<main class="profile">
   <aside class="profile__aside">
   <button class="profile__back-button"><img src={{backImageUrl}} /></button>
   </aside>
@@ -28,4 +28,5 @@ export const profileTemplate = `<main class="profile">
 </form>
   </div>
 </div>
-</main>`
+</main>`;
+export default profileTemplate;

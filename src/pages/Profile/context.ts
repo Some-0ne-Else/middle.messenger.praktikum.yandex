@@ -1,85 +1,85 @@
-import { ProfileInput } from "../../components/ProfileInput";
-import { Link } from "../../components/Link";
-import backImageUrl from "../../static/arrow_back.png";
-import emptyAvatarUrl from "../../static/empty_avatar.png";
+import ProfileInput from '../../components/ProfileInput';
+import Link from '../../components/Link';
+import backImageUrl from '../../static/arrow_back.png';
+import emptyAvatarUrl from '../../static/empty_avatar.png';
 
 const profileHeader = {
-  header: "Иван"
-}
+  header: 'Иван',
+};
 
 const profileEmail = {
-  className: "",
-  name: "email",
-  type: "email",
-  label: "Почта",
-  disabled: "disabled",
-  value: "pochta@yandex.ru",
+  className: '',
+  name: 'email',
+  type: 'email',
+  label: 'Почта',
+  disabled: 'disabled',
+  value: 'pochta@yandex.ru',
 };
 
 const profileLogin = {
-  className: "",
-  name: "login",
-  type: "text",
-  label: "Логин",
-  disabled: "disabled",
-  value: "ivanivanov",
+  className: '',
+  name: 'login',
+  type: 'text',
+  label: 'Логин',
+  disabled: 'disabled',
+  value: 'ivanivanov',
 };
 
 const profileName = {
-  className: "",
-  name: "first_name",
-  type: "text",
-  label: "Имя",
-  disabled: "disabled",
-  value: "Иван",
+  className: '',
+  name: 'first_name',
+  type: 'text',
+  label: 'Имя',
+  disabled: 'disabled',
+  value: 'Иван',
 };
 
 const profileSurname = {
-  className: "",
-  name: "second_name",
-  type: "text",
-  label: "Фамилия",
-  disabled: "disabled",
-  value: "Иванов",
+  className: '',
+  name: 'second_name',
+  type: 'text',
+  label: 'Фамилия',
+  disabled: 'disabled',
+  value: 'Иванов',
 };
 
 const profileDisplayName = {
-  className: "",
-  name: "display_name",
-  type: "text",
-  label: "Имя в чате",
-  disabled: "disabled",
-  value: "Иванов",
+  className: '',
+  name: 'display_name',
+  type: 'text',
+  label: 'Имя в чате',
+  disabled: 'disabled',
+  value: 'Иванов',
 };
 
 const profilePhone = {
-  className: "",
-  name: "phone",
-  type: "text",
-  label: "Телефон",
-  disabled: "disabled",
-  value: "+7(909)9673030",
+  className: '',
+  name: 'phone',
+  type: 'text',
+  label: 'Телефон',
+  disabled: 'disabled',
+  value: '+7(909)9673030',
 };
 
 const changeDataLink = {
   className: 'profile__link',
-   href: "#",
-   text: "Изменить данные"
+  href: '#',
+  text: 'Изменить данные',
 };
 
 const changePasswordLink = {
   className: 'profile__link',
-   href: "#",
-   text: "Изменить пароль"
+  href: '#',
+  text: 'Изменить пароль',
 };
 
 const logoutLink = {
   className: 'profile__link_red',
-   href: "#",
-   text: "Выйти"
+  href: '#',
+  text: 'Выйти',
 };
 
-export const profileContext = {
+const profileContext = {
   profileHeader: profileHeader.header,
   profileEmail: ProfileInput(profileEmail),
   profileLogin: ProfileInput(profileLogin),
@@ -90,6 +90,8 @@ export const profileContext = {
   changeDataLink: Link(changeDataLink),
   changePasswordLink: Link(changePasswordLink),
   logoutLink: Link(logoutLink),
-  backImageUrl: backImageUrl,
-  emptyAvatarUrl: emptyAvatarUrl,
+  backImageUrl,
+  emptyAvatarUrl,
 };
+
+export default profileContext;

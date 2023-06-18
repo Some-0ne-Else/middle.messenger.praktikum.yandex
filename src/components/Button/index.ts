@@ -1,5 +1,5 @@
 import Handlebars from 'handlebars';
-import buttonTemplate from './index.tmpl.js';
+import buttonTemplate from './index.tmpl';
 import './styles.pcss';
 
 interface Props {

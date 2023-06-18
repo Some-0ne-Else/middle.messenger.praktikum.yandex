@@ -1,6 +1,8 @@
-import Handlebars from "handlebars";
-import { loginTemplate } from "./index.tmpl.js";
-import { loginContext } from "./context.js";
+import Handlebars from 'handlebars';
+import loginTemplate from './index.tmpl';
+import loginContext from './context';
 import './styles.pcss';
 
-export const LoginPage = (context = loginContext) => Handlebars.compile(loginTemplate)(context);
+const LoginPage = (context = loginContext) => Handlebars.compile(loginTemplate)(context);
+
+export default LoginPage;

@@ -1,5 +1,5 @@
-import Handlebars from "handlebars";
-import { inputTemplate } from "./index.tmpl.js";
+import Handlebars from 'handlebars';
+import inputTemplate from './index.tmpl';
 import './styles.pcss';
 
 type Props = {
@@ -7,6 +7,12 @@ type Props = {
   name: string;
   type: string;
   label: string;
-}
+};
 
-export const Input = ({ className, name, type, label }: Props) => Handlebars.compile(inputTemplate)({ className, name, type, label })
+const Input = ({
+  className, name, type, label,
+}: Props) => Handlebars.compile(inputTemplate)({
+  className, name, type, label,
+});
+
+export default Input;

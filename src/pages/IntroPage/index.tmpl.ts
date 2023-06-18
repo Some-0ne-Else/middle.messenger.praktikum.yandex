@@ -1,4 +1,4 @@
-export const template =`
+const template = `
 <main class="intro-page">
   <h1 class="not-found__header">Навигация</h1>
 <nav>
@@ -29,4 +29,6 @@ export const template =`
 </li>
 </ul>
 </nav>
-</main>`
+</main>`;
+
+export default template;

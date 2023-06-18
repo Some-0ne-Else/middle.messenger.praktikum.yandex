@@ -1,5 +1,7 @@
-import Handlebars from "handlebars";
-import { chatListTemplate } from "./index.tmpl";
+import Handlebars from 'handlebars';
+import chatListTemplate from './index.tmpl';
 import './styles.pcss';
 
-export const ChatListPage = () => Handlebars.compile(chatListTemplate)({});
+const ChatListPage = () => Handlebars.compile(chatListTemplate)({});
+
+export default ChatListPage;

@@ -1,5 +1,7 @@
-import Handlebars from "handlebars";
-import { template } from "./index.tmpl.js";
+import Handlebars from 'handlebars';
+import template from './index.tmpl';
 import './styles.pcss';
 
-export const IntroPage = () => Handlebars.compile(template)({});
+const IntroPage = () => Handlebars.compile(template)({});
+
+export default IntroPage;

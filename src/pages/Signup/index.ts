@@ -1,6 +1,8 @@
-import Handlebars from "handlebars";
-import { signupTemplate } from "./index.tmpl.js";
-import { signupContext } from "./context.js";
+import Handlebars from 'handlebars';
+import signupTemplate from './index.tmpl';
+import signupContext from './context';
 import './styles.pcss';
 
-export const SignupPage = (context = signupContext) => Handlebars.compile(signupTemplate)(context);
+const SignupPage = (context = signupContext) => Handlebars.compile(signupTemplate)(context);
+
+export default SignupPage;

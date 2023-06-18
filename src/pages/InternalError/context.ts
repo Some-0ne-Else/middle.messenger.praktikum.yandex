@@ -1,11 +1,13 @@
-import { Link } from '../../components/Link';
+import Link from '../../components/Link';
 
 const chatLink = {
-  className: "internal-error__link",
-  href: "#",
-  text: "Назад к чатам"
-}
+  className: 'internal-error__link',
+  href: '#',
+  text: 'Назад к чатам',
+};
 
-export const internalErrorContext = {
+const internalErrorContext = {
   chatLink: Link(chatLink),
-}
+};
+
+export default internalErrorContext;

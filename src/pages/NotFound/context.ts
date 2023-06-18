@@ -1,11 +1,13 @@
-import { Link } from '../../components/Link';
+import Link from '../../components/Link';
 
 const chatLink = {
-  className: "not-found__link",
-  href: "#",
-  text: "Назад к чатам"
-}
+  className: 'not-found__link',
+  href: '#',
+  text: 'Назад к чатам',
+};
 
-export const notFoundContext = {
+const notFoundContext = {
   chatLink: Link(chatLink),
-}
+};
+
+export default notFoundContext;
