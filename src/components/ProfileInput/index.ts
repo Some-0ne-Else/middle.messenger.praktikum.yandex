@@ -10,10 +10,14 @@ type Props = {
   disabled?: string;
   value: string;
 };
-const ProfileInput = ({
-  className, name, type, label, disabled, value,
-}: Props) => Handlebars.compile(profileInputTemplate)({
-  className, name, type, label, disabled, value,
-});
+const ProfileInput = ({ className, name, type, label, disabled, value }: Props) =>
+  Handlebars.compile(profileInputTemplate)({
+    className,
+    name,
+    type,
+    label,
+    disabled,
+    value,
+  });
 
 export default ProfileInput;

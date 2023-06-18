@@ -9,10 +9,12 @@ type Props = {
   label: string;
 };
 
-const Input = ({
-  className, name, type, label,
-}: Props) => Handlebars.compile(inputTemplate)({
-  className, name, type, label,
-});
+const Input = ({ className, name, type, label }: Props) =>
+  Handlebars.compile(inputTemplate)({
+    className,
+    name,
+    type,
+    label,
+  });
 
 export default Input;

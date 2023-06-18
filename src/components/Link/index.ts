@@ -8,6 +8,7 @@ type Props = {
   text: string;
 };
 
-const Link = ({ className, href, text }: Props) => Handlebars.compile(linkTemplate)({ className, href, text });
+const Link = ({ className, href, text }: Props) =>
+  Handlebars.compile(linkTemplate)({ className, href, text });
 
 export default Link;
