@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "lint": "npx eslint ./src",
+    "lint": "npx eslint ./src --fix",
     "prebuild": "tsc --noEmit",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview",
