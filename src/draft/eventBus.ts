@@ -1,4 +1,5 @@
-type VoidCallback = (...args: unknown[]) => void;
+type ComponentProps = Record<string, unknown>;
+type VoidCallback = (...args: ComponentProps[]) => void;
 
 // TODO type event as enum
 
@@ -13,7 +14,7 @@ class EventBus {
     this.listeners = {};
   }
 
-  subscribe(event: string, callback: VoidCallback) {
+  on(event: string, callback: VoidCallback) {
     if (!this.listeners[event]) {
       this.listeners[event] = [];
     }
@@ -21,7 +22,7 @@ class EventBus {
     this.listeners[event].push(callback);
   }
 
-  unsubscribe(event: string, callback: VoidCallback) {
+  off(event: string, callback: VoidCallback) {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
@@ -29,7 +30,7 @@ class EventBus {
     this.listeners[event] = this.listeners[event].filter((listener) => listener !== callback);
   }
 
-  emit(event: string, ...args: unknown[]) {
+  emit(event: string, ...args: ComponentProps[]) {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
