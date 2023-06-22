@@ -11,6 +11,7 @@
         "project": "./tsconfig.json"
     },
     "rules": {
-      "max-len": ["error", { "code": 140 }]
+      "max-len": ["error", { "code": 140 }],
+      "no-underscore-dangle": ["error", { "allowAfterThis": true }]
     }
 }
