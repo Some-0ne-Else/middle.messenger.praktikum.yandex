@@ -134,10 +134,6 @@ class Block {
 
   _render() {
     const fragment = this.render();
-    // Этот небезопасный метод для упрощения логики
-    // Используйте шаблонизатор из npm или напишите свой безопасный
-    // Нужно не в строку компилировать (или делать это правильно),
-    // либо сразу в DOM-элементы возвращать из compile DOM-ноду
     this._element!.innerHTML = '';
     this._element!.append(fragment);
     this._addEvents();
@@ -177,11 +173,12 @@ class Block {
     return proxyProps;
   }
 
-  protected compile(template: string, context: any /* TS */) {
+  /* TODO add strict typing for context */
+  protected compile(template: string, context: any) {
     const contextAndStubs = { ...context };
 
-    Object.entries(this.children).forEach(([name, component]) => {
-      contextAndStubs[name] = `div data-id="${component.id}"></div>`;
+    Object.entries(this.children).forEach(([name, { id }]) => {
+      contextAndStubs[name] = `div data-id="${id}"></div>`;
     });
 
     const compiledHtml = Handlebars.compile(template)(contextAndStubs);
