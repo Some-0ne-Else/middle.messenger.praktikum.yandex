@@ -6,7 +6,8 @@ type Meta = {
   props: unknown;
 };
 
-type ComponentProps = Record<string, unknown>;
+export type ComponentProps = Record<string, unknown>;
+export type BlockInstance = InstanceType<typeof Block>;
 
 class Block {
   static EVENTS = {
