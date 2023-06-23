@@ -1,13 +1,18 @@
-import EventBus from './eventBus';
-import shallowEqual from '../helpers/shalowEqual';
+import EventBus, { EventBusInstance } from './eventBus';
+import shallowEqual from './shalowEqual';
+
+export type ComponentProps = Record<string, any>;
+
+type EventsInProps = {
+  [key: string]: () => void;
+};
+
+export type BlockInstance = InstanceType<typeof Block>;
 
 type Meta = {
   tagName: string;
-  props: unknown;
+  props: ComponentProps;
 };
-
-export type ComponentProps = Record<string, unknown>;
-export type BlockInstance = InstanceType<typeof Block>;
 
 class Block {
   static EVENTS = {
@@ -19,7 +24,7 @@ class Block {
 
   props: ComponentProps;
 
-  eventBus: () => EventBus;
+  eventBus: () => EventBusInstance;
 
   _element: HTMLElement | null = null;
 
@@ -41,14 +46,14 @@ class Block {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  _registerEvents(eventBus: EventBus) {
+  private _registerEvents(eventBus: EventBus) {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  _createResources() {
+  private _createResources() {
     const { tagName } = this._meta;
     this._element = this._createDocumentElement(tagName);
   }
@@ -58,34 +63,38 @@ class Block {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  _componentDidMount() {
+  private _componentDidMount() {
     this.componentDidMount();
   }
 
-  // Может переопределять пользователь, необязательно трогать
-  componentDidMount(/* oldProps */) {
-    console.log('componentDidMount');
-  }
+  componentDidMount() {}
 
-  dispatchComponentDidMount() {
+  public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  _componentDidUpdate(oldProps: ComponentProps, newProps: ComponentProps) {
+  private _componentDidUpdate(oldProps: ComponentProps, newProps: ComponentProps) {
     const response = this.componentDidUpdate(oldProps, newProps);
     if (response) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
 
-  // Может переопределять пользователь, необязательно трогать
   componentDidUpdate(oldProps: ComponentProps, newProps: ComponentProps) {
     const isPropsEqual = shallowEqual({ a: oldProps, b: newProps });
-    console.log(isPropsEqual);
+    console.log('isPropsEqual', isPropsEqual);
     if (isPropsEqual) {
       return false;
     }
     return true;
+  }
+
+  _addEvents() {
+    const events: EventsInProps = this.props?.events;
+
+    Object.entries(events).forEach(([eventName, eventFunction]) => {
+      this._element?.addEventListener(eventName, eventFunction);
+    });
   }
 
   setProps = (nextProps: ComponentProps) => {
@@ -111,22 +120,23 @@ class Block {
   }
 
   // Может переопределять пользователь, необязательно трогать
+  // Модифицировать метод
   render() {
     return '';
   }
 
-  getContent() {
+  public getContent() {
     return this.element;
   }
 
-  _makePropsProxy(props: Record<string, unknown>) {
+  private _makePropsProxy(props: Record<string, unknown>) {
     const checkPrivateProp = (prop: string | symbol) => prop.toString().startsWith('_');
     const proxyProps = new Proxy(props, {
       get(target, prop) {
         if (checkPrivateProp(prop)) {
           throw new Error('Отказано в доступе');
         }
-        const value = target[prop as keyof typeof props];
+        const value = target[prop as keyof ComponentProps];
         return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target, prop, value: unknown) {
@@ -134,7 +144,7 @@ class Block {
           throw new Error('Нет прав');
         } else {
           // eslint-disable-next-line no-param-reassign
-          target[prop as keyof typeof props] = value;
+          target[prop as keyof ComponentProps] = value;
           return true;
         }
       },

@@ -1,4 +1,4 @@
-import Block, { ComponentProps, BlockInstance } from './block';
+import Block, { ComponentProps, BlockInstance } from '../helpers/block';
 
 class Button extends Block {
   constructor(props: ComponentProps) {
@@ -23,7 +23,6 @@ const button = new Button({
   text: 'Click me',
 });
 
-// app — это class дива в корне DOM
 render('.app', button);
 
 // Через секунду контент изменится сам, достаточно обновить пропсы
