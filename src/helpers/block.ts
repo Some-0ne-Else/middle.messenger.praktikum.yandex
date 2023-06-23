@@ -1,3 +1,5 @@
+import { v4 as generateUUID } from 'uuid';
+
 import EventBus, { EventBusInstance } from './eventBus';
 import shallowEqual from './shalowEqual';
 
@@ -26,24 +28,47 @@ class Block {
 
   eventBus: () => EventBusInstance;
 
-  _element: HTMLElement | null = null;
+  private _element: HTMLElement | null = null;
 
-  _meta: Meta;
+  public id = generateUUID();
 
-  constructor(tagName = 'div', props = {}) {
+  public children: Record<string, BlockInstance>;
+
+  private _meta: Meta;
+
+  constructor(tagName = 'div', propsWithChildren = {}) {
     const eventBus = new EventBus();
+
+    const { props, children } = this._getChildrenAndProps(propsWithChildren);
 
     this._meta = {
       tagName,
       props,
     };
 
-    this.props = this._makePropsProxy(props);
+    this.children = children;
+
+    this.props = this._makePropsProxy({ ...props, id: this.id });
 
     this.eventBus = () => eventBus;
 
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
+  }
+
+  _getChildrenAndProps(childrenAndProps: ComponentProps) {
+    const props: Record<string, unknown> = {};
+    const children: Record<string, Block> = {};
+
+    Object.entries(childrenAndProps).forEach(([key, value]) => {
+      if (value instanceof Block) {
+        children[key] = value;
+      } else {
+        props[key] = value;
+      }
+    });
+
+    return { props, children };
   }
 
   private _registerEvents(eventBus: EventBus) {
@@ -74,8 +99,8 @@ class Block {
   }
 
   private _componentDidUpdate(oldProps: ComponentProps, newProps: ComponentProps) {
-    const response = this.componentDidUpdate(oldProps, newProps);
-    if (response) {
+    const isPropsChanged = this.componentDidUpdate(oldProps, newProps);
+    if (isPropsChanged) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
@@ -83,10 +108,7 @@ class Block {
   componentDidUpdate(oldProps: ComponentProps, newProps: ComponentProps) {
     const isPropsEqual = shallowEqual({ a: oldProps, b: newProps });
     console.log('isPropsEqual', isPropsEqual);
-    if (isPropsEqual) {
-      return false;
-    }
-    return true;
+    return isPropsEqual;
   }
 
   _addEvents() {
@@ -111,18 +133,18 @@ class Block {
   }
 
   _render() {
-    const block = this.render();
+    const fragment = this.render();
     // Этот небезопасный метод для упрощения логики
     // Используйте шаблонизатор из npm или напишите свой безопасный
     // Нужно не в строку компилировать (или делать это правильно),
     // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-    this._element!.innerHTML = block;
+    this._element!.innerHTML = '';
+    this._element!.append(fragment);
+    this._addEvents();
   }
 
-  // Может переопределять пользователь, необязательно трогать
-  // Модифицировать метод
-  render() {
-    return '';
+  protected render(): DocumentFragment {
+    return new DocumentFragment();
   }
 
   public getContent() {
@@ -153,6 +175,33 @@ class Block {
       },
     });
     return proxyProps;
+  }
+
+  protected compile(template: string, context: any /* TS */) {
+    const contextAndStubs = { ...context };
+
+    Object.entries(this.children).forEach(([name, component]) => {
+      contextAndStubs[name] = `div data-id="${component.id}"></div>`;
+    });
+
+    const compiledHtml = Handlebars.compile(template)(contextAndStubs);
+
+    const temp = document.createElement('template');
+
+    temp.innerHTML = compiledHtml;
+
+    Object.entries(this.children).forEach(([, component]) => {
+      const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
+
+      if (!stub) {
+        return;
+      }
+
+      component.getContent()?.append(...Array.from(stub.childNodes));
+      stub.replaceWith(component.getContent()!);
+    });
+
+    return temp.content;
   }
 
   _createDocumentElement(tagName: string) {

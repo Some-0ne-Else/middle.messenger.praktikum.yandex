@@ -23,7 +23,7 @@ const button = new Button({
   text: 'Click me',
 });
 
-render('.app', button);
+render('#app', button);
 
 // Через секунду контент изменится сам, достаточно обновить пропсы
 setTimeout(() => {
