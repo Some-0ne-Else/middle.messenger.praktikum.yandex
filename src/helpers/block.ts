@@ -103,6 +103,10 @@ class Block {
     const isPropsEqual = this.componentDidUpdate(oldProps, newProps);
     if (!isPropsEqual) {
       this._removeEvents(oldProps);
+      Object.keys(this.children).forEach((key) => {
+        this.children[key].setProps(newProps[key].props);
+      });
+
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }

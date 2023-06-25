@@ -51,25 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   render(rootId, LoginInstance);
 
-  setTimeout(() => {
-    buttonInstance.setProps({
-      text: 'Войти222',
-      events: {
-        click: (e: Event) => {
-          e.preventDefault();
-          console.log('click2');
-        },
-      },
-    });
-  }, 2000);
-
   // setTimeout(() => {
-  //   console.log('--------------');
-  //   LoginInstance.setProps({
-  //     loginButton: buttonInstance2,
-  //     // events: {},
+  //   buttonInstance.setProps({
+  //     text: 'Войти222',
+  //     events: {
+  //       click: (e: Event) => {
+  //         e.preventDefault();
+  //         console.log('click2');
+  //       },
+  //     },
   //   });
-  // }, 3000);
+  // }, 2000);
+
+  setTimeout(() => {
+    console.log('--------------');
+    LoginInstance.setProps({
+      loginButton: buttonInstance2,
+      // events: {},
+    });
+  }, 3000);
 
   // root!.innerHTML = '';
 
