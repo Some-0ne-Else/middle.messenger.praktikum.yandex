@@ -13,6 +13,12 @@
     "rules": {
       "max-len": ["error", { "code": 140 }],
       "no-underscore-dangle": ["error", { "allowAfterThis": true }],
-      "class-methods-use-this": ["off"]
+      "class-methods-use-this": ["off"],
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ]
     }
 }
