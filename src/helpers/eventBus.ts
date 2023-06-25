@@ -2,8 +2,6 @@ type ComponentProps = Record<string, unknown>;
 type VoidCallback = (...args: ComponentProps[]) => void;
 export type EventBusInstance = InstanceType<typeof EventBus>;
 
-// TODO type event as enum
-
 interface Listeners {
   [key: string]: VoidCallback[];
 }

@@ -1,4 +1,5 @@
 import { v4 as generateUUID } from 'uuid';
+import Handlebars from 'handlebars';
 
 import EventBus, { EventBusInstance } from './eventBus';
 import shallowEqual from './shalowEqual';
@@ -99,15 +100,14 @@ class Block {
   }
 
   private _componentDidUpdate(oldProps: ComponentProps, newProps: ComponentProps) {
-    const isPropsChanged = this.componentDidUpdate(oldProps, newProps);
-    if (isPropsChanged) {
+    const isPropsEqual = this.componentDidUpdate(oldProps, newProps);
+    if (!isPropsEqual) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
 
   componentDidUpdate(oldProps: ComponentProps, newProps: ComponentProps) {
     const isPropsEqual = shallowEqual({ a: oldProps, b: newProps });
-    console.log('isPropsEqual', isPropsEqual);
     return isPropsEqual;
   }
 
@@ -176,9 +176,10 @@ class Block {
   /* TODO add strict typing for context */
   protected compile(template: string, context: any) {
     const contextAndStubs = { ...context };
+    console.log('contextAndStubs', contextAndStubs);
 
     Object.entries(this.children).forEach(([name, { id }]) => {
-      contextAndStubs[name] = `div data-id="${id}"></div>`;
+      contextAndStubs[name] = `<div data-id="${id}"></div>`;
     });
 
     const compiledHtml = Handlebars.compile(template)(contextAndStubs);
