@@ -112,7 +112,7 @@ class Block {
   }
 
   _addEvents() {
-    const events: EventsInProps = this.props?.events;
+    const events: EventsInProps = this.props?.events ?? {};
 
     Object.entries(events).forEach(([eventName, eventFunction]) => {
       this._element?.addEventListener(eventName, eventFunction);
@@ -176,7 +176,6 @@ class Block {
   /* TODO add strict typing for context */
   protected compile(template: string, context: any) {
     const contextAndStubs = { ...context };
-    console.log('contextAndStubs', contextAndStubs);
 
     Object.entries(this.children).forEach(([name, { id }]) => {
       contextAndStubs[name] = `<div data-id="${id}"></div>`;

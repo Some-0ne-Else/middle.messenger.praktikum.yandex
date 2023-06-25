@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttonInstance = new Button(loginButton);
   const LoginInstance = new LoginPage({
     loginButton: buttonInstance,
-    events: {},
+    // events: {},
   });
 
   render(rootId, LoginInstance);

@@ -8,7 +8,6 @@ import './styles.pcss';
 
 interface Props {
   loginButton: BlockInstance;
-  events: {};
 }
 
 class Login extends Block {
