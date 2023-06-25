@@ -29,9 +29,21 @@ const loginButton = {
   },
 };
 
+const loginButton2 = {
+  className: 'login__button',
+  text: 'Войти2',
+  type: 'submit',
+  events: {
+    click: (e: Event) => {
+      e.preventDefault();
+      console.log('click2');
+    },
+  },
+};
 document.addEventListener('DOMContentLoaded', () => {
   // const root = document.querySelector('#app');
   const buttonInstance = new Button(loginButton);
+  const buttonInstance2 = new Button(loginButton2);
   const LoginInstance = new LoginPage({
     loginButton: buttonInstance,
     // events: {},
@@ -39,9 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   render(rootId, LoginInstance);
 
+  setTimeout(() => {
+    buttonInstance.setProps({
+      text: 'Войти222',
+      events: {
+        click: (e: Event) => {
+          e.preventDefault();
+          console.log('click2');
+        },
+      },
+    });
+  }, 2000);
+
   // setTimeout(() => {
-  //   buttonInstance.setProps({ text: 'Войти222' });
-  // }, 2000);
+  //   console.log('--------------');
+  //   LoginInstance.setProps({
+  //     loginButton: buttonInstance2,
+  //     // events: {},
+  //   });
+  // }, 3000);
 
   // root!.innerHTML = '';
 

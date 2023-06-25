@@ -102,12 +102,14 @@ class Block {
   private _componentDidUpdate(oldProps: ComponentProps, newProps: ComponentProps) {
     const isPropsEqual = this.componentDidUpdate(oldProps, newProps);
     if (!isPropsEqual) {
+      this._removeEvents(oldProps);
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
 
   componentDidUpdate(oldProps: ComponentProps, newProps: ComponentProps) {
     const isPropsEqual = shallowEqual({ a: oldProps, b: newProps });
+    console.log(isPropsEqual);
     return isPropsEqual;
   }
 
@@ -119,13 +121,23 @@ class Block {
     });
   }
 
+  _removeEvents(oldProps: ComponentProps) {
+    const events: EventsInProps = oldProps?.events;
+    if (!events) {
+      return;
+    }
+    Object.entries(events).forEach(([eventName, eventFunction]) => {
+      this._element?.removeEventListener(eventName, eventFunction);
+    });
+  }
+
   setProps = (nextProps: ComponentProps) => {
     if (!nextProps) {
       return;
     }
-
+    const oldProps = { ...this.props };
     Object.assign(this.props, nextProps);
-    this.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...this.props }, nextProps);
+    this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldProps, nextProps);
   };
 
   get element() {
@@ -134,6 +146,7 @@ class Block {
 
   _render() {
     const fragment = this.render();
+    console.log('fragment.children', fragment.children);
     this._element!.innerHTML = '';
     this._element!.append(fragment);
     this._addEvents();
@@ -176,7 +189,7 @@ class Block {
   /* TODO add strict typing for context */
   protected compile(template: string, context: any) {
     const contextAndStubs = { ...context };
-
+    console.log('compile contextAndStubs', contextAndStubs);
     Object.entries(this.children).forEach(([name, { id }]) => {
       contextAndStubs[name] = `<div data-id="${id}"></div>`;
     });

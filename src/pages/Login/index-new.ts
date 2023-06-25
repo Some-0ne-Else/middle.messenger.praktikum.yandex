@@ -1,7 +1,7 @@
 import loginTemplate from './index.tmpl';
 import Block, { BlockInstance } from '../../helpers/block';
-import props from './context-new';
-import Button from '../../components/Button/index-new';
+// import props from './context-new';
+// import Button from '../../components/Button/index-new';
 import './styles.pcss';
 
 // const loginButtonInstance = new Button(props.loginButton);
