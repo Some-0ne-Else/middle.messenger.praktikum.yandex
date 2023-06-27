@@ -17,7 +17,7 @@ import render from './helpers/render';
 
 const rootId = '#app';
 
-const loginButton = {
+const loginButtonProps = {
   className: 'login__button',
   text: 'Войти',
   type: 'submit',
@@ -29,21 +29,22 @@ const loginButton = {
   },
 };
 
-const loginButton2 = {
-  className: 'login__button',
-  text: 'Войти2',
-  type: 'submit',
-  events: {
-    click: (e: Event) => {
-      e.preventDefault();
-      console.log('click2');
-    },
-  },
-};
+// const loginButtonProps2 = {
+//   className: 'login__button',
+//   text: 'Войти2',
+//   type: 'submit',
+//   events: {
+//     click: (e: Event) => {
+//       e.preventDefault();
+//       console.log('click2');
+//     },
+//   },
+// };
+
 document.addEventListener('DOMContentLoaded', () => {
   // const root = document.querySelector('#app');
-  const buttonInstance = new Button(loginButton);
-  const buttonInstance2 = new Button(loginButton2);
+  const buttonInstance = new Button(loginButtonProps);
+  // const buttonInstance2 = new Button(loginButtonProps2);
   const LoginInstance = new LoginPage({
     loginButton: buttonInstance,
     // events: {},
@@ -51,25 +52,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   render(rootId, LoginInstance);
 
-  // setTimeout(() => {
-  //   buttonInstance.setProps({
-  //     text: 'Войти222',
-  //     events: {
-  //       click: (e: Event) => {
-  //         e.preventDefault();
-  //         console.log('click2');
-  //       },
-  //     },
-  //   });
-  // }, 2000);
-
   setTimeout(() => {
-    console.log('--------------');
-    LoginInstance.setProps({
-      loginButton: buttonInstance2,
-      // events: {},
+    console.log('--settingNewProps--');
+    buttonInstance.setProps({
+      text: 'Войти222',
+      events: {
+        click: (e: Event) => {
+          e.preventDefault();
+          console.log('click2');
+        },
+      },
     });
   }, 3000);
+
+  // setTimeout(() => {
+  //   console.log('--------------');
+  //   LoginInstance.setProps({
+  //     loginButton: buttonInstance2,
+  //     // events: {},
+  //   });
+  // }, 3000);
 
   // root!.innerHTML = '';
 
