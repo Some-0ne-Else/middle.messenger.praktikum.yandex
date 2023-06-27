@@ -80,8 +80,7 @@ class Block {
   }
 
   private _createResources() {
-    const { tagName } = this._meta;
-    this._element = this._createDocumentElement(tagName);
+    this._element = this._createDocumentElement();
   }
 
   init() {
@@ -120,7 +119,7 @@ class Block {
     const events: EventsInProps = this.props?.events ?? {};
 
     Object.entries(events).forEach(([eventName, eventFunction]) => {
-      this._element?.addEventListener(eventName, eventFunction);
+      this._element?.firstElementChild?.addEventListener(eventName, eventFunction);
     });
   }
 
@@ -130,7 +129,7 @@ class Block {
       return;
     }
     Object.entries(events).forEach(([eventName, eventFunction]) => {
-      this._element?.removeEventListener(eventName, eventFunction);
+      this._element?.firstElementChild?.removeEventListener(eventName, eventFunction);
     });
   }
 
@@ -160,6 +159,10 @@ class Block {
 
   public getContent() {
     return this.element;
+  }
+
+  public getFirstChildContent() {
+    return this.element?.firstElementChild;
   }
 
   private _makePropsProxy(props: Record<string, unknown>) {
@@ -207,17 +210,16 @@ class Block {
       if (!stub) {
         return;
       }
-
       component.getContent()?.append(...Array.from(stub.childNodes));
-      stub.replaceWith(component.getContent()!);
+      stub.replaceWith(component.getFirstChildContent()!);
     });
 
     return temp.content;
   }
 
-  _createDocumentElement(tagName: string) {
+  _createDocumentElement() {
     // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
-    return document.createElement(tagName);
+    return document.createElement('div');
   }
 
   show() {
