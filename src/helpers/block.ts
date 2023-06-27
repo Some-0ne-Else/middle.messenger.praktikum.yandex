@@ -188,8 +188,7 @@ class Block {
     return proxyProps;
   }
 
-  /* TODO add strict typing for context */
-  protected compile(template: string, context: any) {
+  protected compile(template: string, context: Record<string, unknown>) {
     const contextAndStubs = { ...context };
     Object.entries(this.children).forEach(([name, { id }]) => {
       contextAndStubs[name] = `<div data-id="${id}"></div>`;
