@@ -13,7 +13,7 @@ import './style.pcss';
 
 import LoginPage from './pages/Login/index-new';
 import Button from './components/Button/index-new';
-import render from './draft/render';
+import render from './helpers/render';
 
 const rootId = '#app';
 

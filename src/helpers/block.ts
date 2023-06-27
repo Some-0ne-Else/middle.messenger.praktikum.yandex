@@ -113,7 +113,6 @@ class Block {
 
   componentDidUpdate(oldProps: ComponentProps, newProps: ComponentProps) {
     const isPropsEqual = shallowEqual({ a: oldProps, b: newProps });
-    console.log(isPropsEqual);
     return isPropsEqual;
   }
 
@@ -150,7 +149,6 @@ class Block {
 
   _render() {
     const fragment = this.render();
-    console.log('fragment.children', fragment.children);
     this._element!.innerHTML = '';
     this._element!.append(fragment);
     this._addEvents();
@@ -193,7 +191,6 @@ class Block {
   /* TODO add strict typing for context */
   protected compile(template: string, context: any) {
     const contextAndStubs = { ...context };
-    console.log('compile contextAndStubs', contextAndStubs);
     Object.entries(this.children).forEach(([name, { id }]) => {
       contextAndStubs[name] = `<div data-id="${id}"></div>`;
     });
