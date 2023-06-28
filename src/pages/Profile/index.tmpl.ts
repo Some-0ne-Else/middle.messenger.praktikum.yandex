@@ -1,4 +1,4 @@
-const profileTemplate = `<main class="profile">
+const profileTemplate = `
   <aside class="profile__aside">
   <button class="profile__back-button"><img src={{backImageUrl}} /></button>
   </aside>
@@ -27,6 +27,5 @@ const profileTemplate = `<main class="profile">
 </div>
 </form>
   </div>
-</div>
-</main>`;
+</div>`;
 export default profileTemplate;

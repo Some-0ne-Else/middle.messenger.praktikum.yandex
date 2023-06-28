@@ -1,97 +1,93 @@
-import ProfileInput from '../../components/ProfileInput';
-import Link from '../../components/Link';
 import backImageUrl from '../../static/arrow_back.png';
 import emptyAvatarUrl from '../../static/empty_avatar.png';
 
 const profileHeader = {
-  header: 'Иван',
+  text: 'Иван',
 };
 
 const profileEmail = {
-  className: '',
+  class: 'profile-input',
   name: 'email',
-  type: 'email',
+  inputType: 'email',
   label: 'Почта',
   disabled: 'disabled',
   value: 'pochta@yandex.ru',
 };
 
 const profileLogin = {
-  className: '',
+  class: 'profile-input',
   name: 'login',
-  type: 'text',
+  inputType: 'text',
   label: 'Логин',
   disabled: 'disabled',
   value: 'ivanivanov',
 };
 
 const profileName = {
-  className: '',
+  class: 'profile-input',
   name: 'first_name',
-  type: 'text',
+  inputType: 'text',
   label: 'Имя',
   disabled: 'disabled',
   value: 'Иван',
 };
 
 const profileSurname = {
-  className: '',
+  class: 'profile-input',
   name: 'second_name',
-  type: 'text',
+  inputType: 'text',
   label: 'Фамилия',
   disabled: 'disabled',
   value: 'Иванов',
 };
 
 const profileDisplayName = {
-  className: '',
+  class: 'profile-input',
   name: 'display_name',
-  type: 'text',
+  inputType: 'text',
   label: 'Имя в чате',
   disabled: 'disabled',
   value: 'Иванов',
 };
 
 const profilePhone = {
-  className: '',
+  class: 'profile-input',
   name: 'phone',
-  type: 'text',
+  inputType: 'text',
   label: 'Телефон',
   disabled: 'disabled',
   value: '+7(909)9673030',
 };
 
 const changeDataLink = {
-  className: 'profile__link',
+  class: 'link profile__link',
   href: '#',
   text: 'Изменить данные',
 };
 
 const changePasswordLink = {
-  className: 'profile__link',
+  class: 'link profile__link',
   href: '#',
   text: 'Изменить пароль',
 };
 
 const logoutLink = {
-  className: 'profile__link_red',
+  class: 'link profile__link_red',
   href: '#',
   text: 'Выйти',
 };
 
-const profileContext = {
-  profileHeader: profileHeader.header,
-  profileEmail: ProfileInput(profileEmail),
-  profileLogin: ProfileInput(profileLogin),
-  profileName: ProfileInput(profileName),
-  profileSurname: ProfileInput(profileSurname),
-  profileDisplayName: ProfileInput(profileDisplayName),
-  profilePhone: ProfileInput(profilePhone),
-  changeDataLink: Link(changeDataLink),
-  changePasswordLink: Link(changePasswordLink),
-  logoutLink: Link(logoutLink),
+export default {
+  profileHeader,
+  profileEmail,
+  profileLogin,
+  profileName,
+  profileSurname,
+  profileDisplayName,
+  profilePhone,
+  changeDataLink,
+  changePasswordLink,
+  logoutLink,
   backImageUrl,
   emptyAvatarUrl,
 };
-
-export default profileContext;

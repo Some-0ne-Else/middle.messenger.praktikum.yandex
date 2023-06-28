@@ -1,23 +1,23 @@
-import Handlebars from 'handlebars';
-import profileInputTemplate from './index.tmpl';
+import Block from '../../helpers/block';
+import template from './index.tmpl';
 import './styles.pcss';
 
 type Props = {
-  className: string;
+  class: string;
   name: string;
-  type: string;
+  inputType: string;
   label: string;
   disabled?: string;
   value: string;
 };
-const ProfileInput = ({ className, name, type, label, disabled, value }: Props) =>
-  Handlebars.compile(profileInputTemplate)({
-    className,
-    name,
-    type,
-    label,
-    disabled,
-    value,
-  });
 
+class ProfileInput extends Block {
+  constructor(props: Props) {
+    super('div', props);
+  }
+
+  render() {
+    return this.compile(template, this.props);
+  }
+}
 export default ProfileInput;

@@ -7,6 +7,7 @@ import NotFoundPage from './pages/NotFound';
 import InternalErrorPage from './pages/InternalError';
 import render from './helpers/render';
 import ChatListPage from './pages/ChatList';
+import ProfilePage from './pages/Profile';
 
 const rootId = '#app';
 
@@ -24,9 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // case '/signup': {
       //   return SignupPage();
       // }
-      // case '/profile': {
-      //   return ProfilePage();
-      // }
+      case '/profile': {
+        render(rootId, ProfilePage);
+        break;
+      }
       // case '/profile-edit': {
       //   return ProfileEditPage();
       // }

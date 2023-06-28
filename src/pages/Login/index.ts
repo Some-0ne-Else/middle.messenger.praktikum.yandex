@@ -27,11 +27,11 @@ class Login extends Block {
   }
 }
 
-const LoginInstance = new Login({
+const LoginPage = new Login({
   class: 'login',
   loginButton,
   loginInput,
   passwordInput,
 });
 
-export default LoginInstance;
+export default LoginPage;
