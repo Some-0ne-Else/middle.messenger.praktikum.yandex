@@ -4,6 +4,7 @@ import './style.pcss';
 
 import LoginPage from './pages/Login';
 import NotFoundPage from './pages/NotFound';
+import InternalErrorPage from './pages/InternalError';
 import render from './helpers/render';
 
 const rootId = '#app';
@@ -21,42 +22,43 @@ const rootId = '#app';
 // };
 
 document.addEventListener('DOMContentLoaded', () => {
-  // render(rootId, LoginPage);
-  render(rootId, NotFoundPage);
+  const root = document.querySelector(rootId);
+  root!.innerHTML = '';
+  const { pathname } = window.location;
 
-  // const root = document.querySelector(rootId);
-  // root!.innerHTML = '';
+  const getPage = () => {
+    switch (pathname) {
+      case '/login': {
+        render(rootId, LoginPage);
+        break;
+      }
+      // case '/signup': {
+      //   return SignupPage();
+      // }
+      // case '/profile': {
+      //   return ProfilePage();
+      // }
+      // case '/profile-edit': {
+      //   return ProfileEditPage();
+      // }
+      // case '/profile-password': {
+      //   return ProfilePasswordPage();
+      // }
+      // case '/chat-list': {
+      //   return ChatListPage();
+      // }
+      case '/emulate500': {
+        render(rootId, InternalErrorPage);
+        break;
+      }
+      // case '/': {
+      //   return IntroPage();
+      // }
+      default:
+        render(rootId, NotFoundPage);
+        break;
+    }
+  };
 
-  // const getPage = () => {
-  //   switch (window.location.pathname) {
-  //     case '/login': {
-  //       return LoginPage();
-  //     }
-  //     case '/signup': {
-  //       return SignupPage();
-  //     }
-  //     case '/profile': {
-  //       return ProfilePage();
-  //     }
-  //     case '/profile-edit': {
-  //       return ProfileEditPage();
-  //     }
-  //     case '/profile-password': {
-  //       return ProfilePasswordPage();
-  //     }
-  //     case '/chat-list': {
-  //       return ChatListPage();
-  //     }
-  //     case '/emulate500': {
-  //       return InternalErrorPage();
-  //     }
-  //     case '/': {
-  //       return IntroPage();
-  //     }
-  //     default:
-  //       return NotFoundPage();
-  //   }
-  // };
-
-  // root!.innerHTML = getPage();
+  getPage();
 });

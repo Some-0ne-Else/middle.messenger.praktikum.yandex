@@ -1,8 +1,8 @@
 import template from './index.tmpl';
 import Block, { BlockInstance } from '../../helpers/block';
+import Link from '../../components/Link';
 import context from './context';
 import './styles.pcss';
-import Link from '../../components/Link';
 
 const chatLink = new Link(context.chatLink);
 
