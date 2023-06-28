@@ -1,38 +1,37 @@
-import Button from '../../components/Button';
-import Input from '../../components/Input';
-import Link from '../../components/Link';
-
 const loginButton = {
-  className: 'login__button',
+  class: 'button login__button',
   text: 'Войти',
   type: 'submit',
+  events: {
+    click: (e: Event) => {
+      e.preventDefault();
+      console.log('click');
+    },
+  },
 };
-
 const loginInput = {
-  className: 'login__wrapper',
+  class: 'input login__wrapper',
   name: 'login',
   label: 'Логин',
-  type: 'text',
+  inputType: 'text',
 };
 
 const passwordInput = {
-  className: 'login__wrapper',
+  class: 'input login__wrapper',
   name: 'password',
   label: 'Пароль',
-  type: 'password',
+  inputType: 'password',
 };
 
 const loginLink = {
-  className: '',
+  class: '',
   href: '#',
   text: 'Зарегистрироваться',
 };
 
-const loginContext = {
-  loginInput: Input(loginInput),
-  passwordInput: Input(passwordInput),
-  loginButton: Button(loginButton),
-  loginLink: Link(loginLink),
+export default {
+  loginButton,
+  loginInput,
+  passwordInput,
+  loginLink,
 };
-
-export default loginContext;

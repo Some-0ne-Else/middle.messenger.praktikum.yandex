@@ -1,3 +1,3 @@
-const linkTemplate = '<a class="link {{className}}" href={{ href }}>{{ text }}</a>';
+const linkTemplate = '{{ text }}';
 
 export default linkTemplate;

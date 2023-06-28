@@ -1,3 +1,3 @@
-const buttonTemplate = '<button class="button {{className}}" type={{type}}>{{text}}</button>';
+const buttonTemplate = '{{text}}';
 
 export default buttonTemplate;

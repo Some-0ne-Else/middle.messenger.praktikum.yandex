@@ -1,14 +1,21 @@
-import Handlebars from 'handlebars';
-import linkTemplate from './index.tmpl';
+import Block from '../../helpers/block';
+import template from './index.tmpl';
 import './styles.pcss';
 
 type Props = {
-  className: string;
+  class: string;
   href: string;
   text: string;
 };
 
-const Link = ({ className, href, text }: Props) =>
-  Handlebars.compile(linkTemplate)({ className, href, text });
+class Link extends Block {
+  constructor(props: Props) {
+    super('a', props);
+  }
+
+  render() {
+    return this.compile(template, this.props);
+  }
+}
 
 export default Link;

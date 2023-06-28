@@ -1,20 +1,21 @@
-import Handlebars from 'handlebars';
+import Block from '../../helpers/block';
 import inputTemplate from './index.tmpl';
 import './styles.pcss';
 
-type Props = {
-  className: string;
+interface Props {
+  class: string;
+  inputType: string;
   name: string;
-  type: string;
   label: string;
-};
+}
 
-const Input = ({ className, name, type, label }: Props) =>
-  Handlebars.compile(inputTemplate)({
-    className,
-    name,
-    type,
-    label,
-  });
+class Input extends Block {
+  constructor(props: Props) {
+    super('div', props);
+  }
 
+  render() {
+    return this.compile(inputTemplate, this.props);
+  }
+}
 export default Input;

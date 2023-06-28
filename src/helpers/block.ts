@@ -25,6 +25,8 @@ class Block {
     FLOW_RENDER: 'flow:render',
   };
 
+  static attributes = ['class', 'href', 'type'];
+
   props: ComponentProps;
 
   eventBus: () => EventBusInstance;
@@ -82,6 +84,11 @@ class Block {
   private _createResources() {
     const { tagName } = this._meta;
     this._element = this._createDocumentElement(tagName);
+    Object.entries(this.props).forEach(([key, value]) => {
+      if (Block.attributes.includes(key)) {
+        this._element!.setAttribute(key, value);
+      }
+    });
   }
 
   init() {
