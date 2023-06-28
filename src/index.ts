@@ -6,20 +6,9 @@ import LoginPage from './pages/Login';
 import NotFoundPage from './pages/NotFound';
 import InternalErrorPage from './pages/InternalError';
 import render from './helpers/render';
+import ChatListPage from './pages/ChatList';
 
 const rootId = '#app';
-
-// const loginButton2 = {
-//   class: 'button login__button',
-//   text: 'Войти',
-//   type: 'submit',
-//   events: {
-//     click: (e: Event) => {
-//       e.preventDefault();
-//       console.log('click');
-//     },
-//   },
-// };
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector(rootId);
@@ -44,9 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // case '/profile-password': {
       //   return ProfilePasswordPage();
       // }
-      // case '/chat-list': {
-      //   return ChatListPage();
-      // }
+      case '/chat-list': {
+        render(rootId, ChatListPage);
+        break;
+      }
       case '/emulate500': {
         render(rootId, InternalErrorPage);
         break;
