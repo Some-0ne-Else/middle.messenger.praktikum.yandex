@@ -8,6 +8,7 @@ import InternalErrorPage from './pages/InternalError';
 import render from './helpers/render';
 import ChatListPage from './pages/ChatList';
 import ProfilePage from './pages/Profile';
+import ProfileEditPage from './pages/ProfileEdit';
 
 const rootId = '#app';
 
@@ -29,9 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
         render(rootId, ProfilePage);
         break;
       }
-      // case '/profile-edit': {
-      //   return ProfileEditPage();
-      // }
+      case '/profile-edit': {
+        render(rootId, ProfileEditPage);
+        break;
+      }
       // case '/profile-password': {
       //   return ProfilePasswordPage();
       // }
