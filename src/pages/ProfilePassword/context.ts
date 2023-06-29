@@ -1,43 +1,41 @@
-import ProfileInput from '../../components/ProfileInput';
-import Button from '../../components/Button';
 import backImageUrl from '../../static/arrow_back.png';
 import emptyAvatarUrl from '../../static/empty_avatar.png';
 
 const profileOldPassword = {
-  className: '',
+  class: 'profile-input',
   name: 'oldPassword',
-  type: 'password',
+  inputType: 'password',
   label: 'Старый пароль',
   value: '********',
 };
 
 const profileNewPassword = {
-  className: '',
+  class: 'profile-input',
   name: 'newPassword',
-  type: 'password',
+  inputType: 'password',
   label: 'Новый пароль',
   value: '************',
 };
 
 const profileRepeatNewPassword = {
-  className: '',
+  class: 'profile-input',
   name: 'newPassword',
-  type: 'password',
+  inputType: 'password',
   label: 'Повторите новый пароль',
   value: '************',
 };
 
 const profileSaveButton = {
-  className: 'profile-password__save-button',
+  class: 'button profile-password__save-button',
   type: 'submit',
   text: 'Сохранить',
 };
 
 const profilePasswordContext = {
-  profileOldPassword: ProfileInput(profileOldPassword),
-  profileNewPassword: ProfileInput(profileNewPassword),
-  profileRepeatNewPassword: ProfileInput(profileRepeatNewPassword),
-  profileSaveButton: Button(profileSaveButton),
+  profileOldPassword,
+  profileNewPassword,
+  profileRepeatNewPassword,
+  profileSaveButton,
   backImageUrl,
   emptyAvatarUrl,
 };

@@ -1,4 +1,4 @@
-import loginTemplate from './index.tmpl';
+import template from './index.tmpl';
 import Block, { BlockInstance } from '../../helpers/block';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -23,7 +23,7 @@ class Login extends Block {
   }
 
   render() {
-    return this.compile(loginTemplate, this.props);
+    return this.compile(template, this.props);
   }
 }
 

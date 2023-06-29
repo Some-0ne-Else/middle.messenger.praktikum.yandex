@@ -1,4 +1,4 @@
-import loginTemplate from './index.tmpl';
+import template from './index.tmpl';
 import Block, { BlockInstance } from '../../helpers/block';
 import ProfileInput from '../../components/ProfileInput';
 
@@ -27,18 +27,18 @@ interface Props {
   emptyAvatarUrl: string;
 }
 
-class Profile extends Block {
+class ProfileEdit extends Block {
   constructor(props: Props) {
     super('main', props);
   }
 
   render() {
-    return this.compile(loginTemplate, this.props);
+    return this.compile(template, this.props);
   }
 }
 
-const ProfileEditPage = new Profile({
-  class: 'profile',
+const ProfileEditPage = new ProfileEdit({
+  class: 'profile-edit',
   profileEmail,
   profileLogin,
   profileName,

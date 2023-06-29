@@ -9,6 +9,7 @@ import render from './helpers/render';
 import ChatListPage from './pages/ChatList';
 import ProfilePage from './pages/Profile';
 import ProfileEditPage from './pages/ProfileEdit';
+import ProfilePasswordPage from './pages/ProfilePassword';
 
 const rootId = '#app';
 
@@ -34,9 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
         render(rootId, ProfileEditPage);
         break;
       }
-      // case '/profile-password': {
-      //   return ProfilePasswordPage();
-      // }
+      case '/profile-password': {
+        render(rootId, ProfilePasswordPage);
+        break;
+      }
       case '/chat-list': {
         render(rootId, ChatListPage);
         break;
