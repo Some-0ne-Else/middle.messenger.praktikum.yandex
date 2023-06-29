@@ -123,7 +123,7 @@ class Block {
     return isPropsEqual;
   }
 
-  _addEvents() {
+  private _addEvents() {
     const events: EventsInProps = this.props?.events ?? {};
 
     Object.entries(events).forEach(([eventName, eventFunction]) => {
@@ -131,7 +131,7 @@ class Block {
     });
   }
 
-  _removeEvents(oldProps: ComponentProps) {
+  private _removeEvents(oldProps: ComponentProps) {
     const events: EventsInProps = oldProps?.events;
     if (!events) {
       return;
@@ -141,7 +141,7 @@ class Block {
     });
   }
 
-  setProps = (nextProps: ComponentProps) => {
+  public setProps = (nextProps: ComponentProps) => {
     if (!nextProps) {
       return;
     }
