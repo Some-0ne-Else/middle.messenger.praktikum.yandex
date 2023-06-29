@@ -5,16 +5,19 @@ import Input from '../../components/Input';
 import context from './context';
 
 import './styles.pcss';
+import Link from '../../components/Link';
 
 const loginButton = new Button(context.loginButton);
 const loginInput = new Input(context.loginInput);
 const passwordInput = new Input(context.passwordInput);
+const loginLink = new Link(context.loginLink);
 
 interface Props {
   class: string;
   loginButton: BlockInstance;
   loginInput: BlockInstance;
   passwordInput: BlockInstance;
+  loginLink: BlockInstance;
 }
 
 class Login extends Block {
@@ -32,6 +35,7 @@ const LoginPage = new Login({
   loginButton,
   loginInput,
   passwordInput,
+  loginLink,
 });
 
 export default LoginPage;

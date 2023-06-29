@@ -24,7 +24,7 @@ const passwordInput = {
 };
 
 const loginLink = {
-  class: '',
+  class: 'link login__link',
   href: '#',
   text: 'Зарегистрироваться',
 };

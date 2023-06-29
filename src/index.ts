@@ -11,6 +11,7 @@ import ProfilePage from './pages/Profile';
 import ProfileEditPage from './pages/ProfileEdit';
 import ProfilePasswordPage from './pages/ProfilePassword';
 import SignupPage from './pages/Signup';
+import IntroPage from './pages/IntroPage';
 
 const rootId = '#app';
 
@@ -49,9 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
         render(rootId, InternalErrorPage);
         break;
       }
-      // case '/': {
-      //   return IntroPage();
-      // }
+      case '/': {
+        render(rootId, IntroPage);
+        break;
+      }
       default:
         render(rootId, NotFoundPage);
         break;

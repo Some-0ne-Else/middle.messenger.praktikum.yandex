@@ -1,5 +1,4 @@
 const template = `
-<main class="intro-page">
   <h1 class="not-found__header">Навигация</h1>
 <nav>
 <ul>
@@ -28,7 +27,6 @@ const template = `
 <a href="/chat-list">Заглушка страницы чатов</a>
 </li>
 </ul>
-</nav>
-</main>`;
+</nav>`;
 
 export default template;
