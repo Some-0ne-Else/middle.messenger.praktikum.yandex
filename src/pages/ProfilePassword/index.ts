@@ -20,7 +20,7 @@ interface Props {
   emptyAvatarUrl: string;
 }
 
-class ProfileEdit extends Block {
+class ProfilePassword extends Block {
   constructor(props: Props) {
     super('main', props);
   }
@@ -30,8 +30,8 @@ class ProfileEdit extends Block {
   }
 }
 
-const ProfilePasswordPage = new ProfileEdit({
-  class: 'profile',
+const ProfilePasswordPage = new ProfilePassword({
+  class: 'profile-password',
   profileOldPassword,
   profileNewPassword,
   profileRepeatNewPassword,
