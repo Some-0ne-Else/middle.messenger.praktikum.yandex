@@ -154,7 +154,7 @@ class Block {
     return this._element;
   }
 
-  _render() {
+  private _render() {
     const fragment = this.render();
     this._element!.innerHTML = '';
     this._element!.append(fragment);
@@ -221,16 +221,15 @@ class Block {
     return temp.content;
   }
 
-  _createDocumentElement(tagName: string) {
-    // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
+  private _createDocumentElement(tagName: string) {
     return document.createElement(tagName);
   }
 
-  show() {
+  public show() {
     this.getContent()!.style.display = 'block';
   }
 
-  hide() {
+  public hide() {
     this.getContent()!.style.display = 'none';
   }
 }
