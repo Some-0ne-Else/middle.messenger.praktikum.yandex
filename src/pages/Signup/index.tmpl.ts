@@ -1,4 +1,4 @@
-const signupTemplate = `<main class="signup">
+const signupTemplate = `
   <div class="signup__container">
     <h1 class="signup__header">Регистрация</h1>
     <form class="signup__form">
@@ -12,7 +12,6 @@ const signupTemplate = `<main class="signup">
 {{{signupButton}}}
 {{{signupLink}}}
     </form>
-  </div>
-</main>`;
+  </div>`;
 
 export default signupTemplate;
