@@ -1,4 +1,7 @@
 import { loginPattern, passwordPattern } from '../../constants/validation';
+import { validateInput } from '../../helpers/validation';
+
+export const inputErrorClass = 'input__input_error';
 
 const loginInput = {
   class: 'input login__wrapper',
@@ -8,7 +11,10 @@ const loginInput = {
   targetForEvents: true,
   pattern: loginPattern,
   events: {
-    'blur': (e: Event) => {},
+    'blur': (e: Event) => {
+      const input = e.target as HTMLInputElement;
+      validateInput(input, inputErrorClass);
+    },
   },
 };
 
@@ -19,6 +25,12 @@ const passwordInput = {
   inputType: 'password',
   targetForEvents: true,
   pattern: passwordPattern,
+  events: {
+    'blur': (e: Event) => {
+      const input = e.target as HTMLInputElement;
+      validateInput(input, inputErrorClass);
+    },
+  },
 };
 
 const loginButton = {

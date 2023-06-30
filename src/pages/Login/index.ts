@@ -3,10 +3,9 @@ import Block, { BlockInstance, EventsInProps } from '../../helpers/block';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Link from '../../components/Link';
-import context from './context';
-
-import './styles.pcss';
+import context, { inputErrorClass } from './context';
 import { validateForm } from '../../helpers/validation';
+import './styles.pcss';
 
 const loginButton = new Button(context.loginButton);
 const loginInput = new Input(context.loginInput);
@@ -44,7 +43,7 @@ const LoginPage = new Login({
     'submit': (e: Event) => {
       e.preventDefault();
       const form = e.target as HTMLFormElement;
-      const { isFormValid, formData } = validateForm(form);
+      const { isFormValid, formData } = validateForm(form, inputErrorClass);
       if (!isFormValid) {
         console.log('Validation error');
       } else {
