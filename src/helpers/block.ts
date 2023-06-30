@@ -6,8 +6,8 @@ import shallowEqual from './shalowEqual';
 
 export type ComponentProps = Record<string, any>;
 
-type EventsInProps = {
-  [key: string]: () => void;
+export type EventsInProps = {
+  [key: string]: (e: Event) => void;
 };
 
 export type BlockInstance = InstanceType<typeof Block>;
@@ -127,7 +127,10 @@ class Block {
     const events: EventsInProps = this.props?.events ?? {};
 
     Object.entries(events).forEach(([eventName, eventFunction]) => {
-      this._element?.addEventListener(eventName, eventFunction);
+      if (this.props.targetForEvents) {
+        const target = this._element?.querySelector('[targetForEvents=true]');
+        target?.addEventListener(eventName, eventFunction);
+      } else this._element?.addEventListener(eventName, eventFunction);
     });
   }
 
@@ -137,7 +140,10 @@ class Block {
       return;
     }
     Object.entries(events).forEach(([eventName, eventFunction]) => {
-      this._element?.removeEventListener(eventName, eventFunction);
+      if (this.props.targetForEvents) {
+        const target = this._element?.querySelector('[targetForEvents=true]');
+        target?.removeEventListener(eventName, eventFunction);
+      } else this._element?.removeEventListener(eventName, eventFunction);
     });
   }
 

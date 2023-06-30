@@ -1,11 +1,12 @@
 import template from './index.tmpl';
-import Block, { BlockInstance } from '../../helpers/block';
+import Block, { BlockInstance, EventsInProps } from '../../helpers/block';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+import Link from '../../components/Link';
 import context from './context';
 
 import './styles.pcss';
-import Link from '../../components/Link';
+import { validateForm } from '../../helpers/validation';
 
 const loginButton = new Button(context.loginButton);
 const loginInput = new Input(context.loginInput);
@@ -18,6 +19,8 @@ interface Props {
   loginInput: BlockInstance;
   passwordInput: BlockInstance;
   loginLink: BlockInstance;
+  targetForEvents: boolean;
+  events: EventsInProps;
 }
 
 class Login extends Block {
@@ -36,6 +39,19 @@ const LoginPage = new Login({
   loginInput,
   passwordInput,
   loginLink,
+  targetForEvents: true,
+  events: {
+    'submit': (e: Event) => {
+      e.preventDefault();
+      const form = e.target as HTMLFormElement;
+      const { isFormValid, formData } = validateForm(form);
+      if (!isFormValid) {
+        console.log('Validation error');
+      } else {
+        console.log(formData);
+      }
+    },
+  },
 });
 
 export default LoginPage;

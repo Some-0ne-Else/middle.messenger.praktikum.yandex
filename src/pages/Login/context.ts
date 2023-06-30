@@ -1,19 +1,14 @@
+import { loginPattern, passwordPattern } from '../../constants/validation';
+
 const loginInput = {
   class: 'input login__wrapper',
   name: 'login',
   label: 'Логин',
   inputType: 'text',
+  targetForEvents: true,
+  pattern: loginPattern,
   events: {
-    'blur': () => {
-      console.log('blur');
-    },
-    'focus': () => {
-      console.log('focus');
-    },
-    'click': (e: Event) => {
-      // console.log(e.target);
-      console.log('click');
-    },
+    'blur': (e: Event) => {},
   },
 };
 
@@ -22,24 +17,14 @@ const passwordInput = {
   name: 'password',
   label: 'Пароль',
   inputType: 'password',
+  targetForEvents: true,
+  pattern: passwordPattern,
 };
 
 const loginButton = {
   class: 'button login__button',
   text: 'Войти',
   type: 'submit',
-  events: {
-    click: (e: Event) => {
-      e.preventDefault();
-      console.log('click');
-    },
-    'focus': () => {
-      console.log('focus');
-    },
-    'blur': () => {
-      console.log('blur');
-    },
-  },
 };
 
 const loginLink = {

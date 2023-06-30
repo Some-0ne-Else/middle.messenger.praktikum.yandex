@@ -1,7 +1,7 @@
 const loginTemplate = `
   <div class="login__container">
     <h1 class="login__header">Вход</h1>
-    <form class="login__form">
+    <form class="login__form" novalidate targetForEvents={{ targetForEvents }}>
     {{{loginInput}}}
     {{{passwordInput}}}
     {{{loginButton}}}
