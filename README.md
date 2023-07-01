@@ -1,11 +1,11 @@
 # Проект Messenger
 
-## Sprint 1
+## Sprint 2
 
-[Чеклист](https://code.s3.yandex.net/web-developer/checklists-pdf/middle_frontend/pr1.pdf)
+[Чеклист](https://code.s3.yandex.net/web-developer/checklists-pdf/middle_frontend/pr2.pdf)
 [Макеты](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?type=design&t=mrzUv9kO27lOoSm2-1)
 
-Готовность -- заготовка для SPA статические страницы с возможностью приема контекста и переиспользования компонентов с помощью шаблонизатора Handlebars.
+Готовность -- начальная версия реализующая SPA с компонентным подходом, упрощенным жизненным циклом и реактивностью.
 
 Реализовано:
 
@@ -17,7 +17,7 @@
 - Смена пароля `/profile-password`
 - Внутренняя ошибка сервера `/emulate500`
 - Страница не найдена `/some-random-url`
-- Заглушка страницы чатов `/chat-list`
+- Заглушка страницы чатов `/chats`
 
 ### Требования к среде
 
