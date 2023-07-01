@@ -1,4 +1,4 @@
-import './vendor/normalize.css';
+import './vendor/normalize.pcss';
 import './static/fonts/fonts.pcss';
 import './style.pcss';
 
