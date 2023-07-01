@@ -6,7 +6,7 @@ interface Props {
   class: string;
 }
 
-class ChatList extends Block {
+class Chat extends Block {
   constructor(props: Props) {
     super('main', props);
   }
@@ -16,8 +16,8 @@ class ChatList extends Block {
   }
 }
 
-const ChatListPage = new ChatList({
+const ChatPage = new Chat({
   class: 'chat',
 });
 
-export default ChatListPage;
+export default ChatPage;
