@@ -17,7 +17,6 @@
 .profile__container{
   display: flex;
   flex-direction: column;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -26,7 +25,6 @@
   width: 130px;
   height: 130px;
   cursor: pointer;
-  display: block;
   background-color:#EFEFEF;
   border-radius: 70px;
   display: flex;
@@ -36,14 +34,14 @@
 }
 
 .profile__avatar-label:hover{
-  background: #000000;
+  background: #000;
   opacity: 0.5;
 }
 
 .profile__avatar-label:hover::after{
   position: absolute;
   content: 'Поменять аватар';
-  font-family: 'Inter';
+  font-family: $fontFamily;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -101,5 +99,5 @@
 .profile__link_red{
   font-size: 13px;
   line-height: 13px;
-  color: #FF0000;
+  color: #F00;
 }

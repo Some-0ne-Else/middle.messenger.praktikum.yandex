@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "lint": "npx eslint ./src --fix && tsc --noEmit",
+    "stylelint": "npx stylelint **/*.pcss",
     "prebuild": "tsc --noEmit",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview",
@@ -25,7 +26,6 @@
     "eslint-plugin-promise": "^6.1.1",
     "postcss": "^8.4.24",
     "postcss-import": "^15.1.0",
-    "postcss-lit": "^1.1.0",
     "postcss-mixins": "^9.0.4",
     "postcss-nested": "^6.0.1",
     "postcss-simple-vars": "^7.0.1",
