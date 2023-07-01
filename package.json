@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "lint": "npx eslint ./src --fix && tsc --noEmit",
+    "stylelint": "npx stylelint **/*.pcss",
     "prebuild": "tsc --noEmit",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview",
