@@ -12,6 +12,7 @@ const chat1 = {
   messageCounter: '4',
   events: {
     'click': () => {
+      // eslint-disable-next-line no-console
       console.log('click');
     },
   },
@@ -27,6 +28,7 @@ const chat2 = {
   messageCounter: '2',
   events: {
     'click': () => {
+      // eslint-disable-next-line no-console
       console.log('click2');
     },
   },

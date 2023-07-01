@@ -55,10 +55,7 @@ class HTTPTransport {
       };
 
       xhr.onabort = reject;
-      xhr.onerror = () => {
-        console.log(`Ошибка соединения`);
-        reject();
-      };
+      xhr.onerror = () => reject;
 
       xhr.ontimeout = () => {
         reject();
