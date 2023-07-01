@@ -1,14 +1,18 @@
-import template from './index.tmpl';
 import Block from '../../helpers/block';
+import template from './index.tmpl';
 import './styles.pcss';
 
 interface Props {
   class: string;
+  chatImage: string;
+  username: string;
+  lastMessage: string;
+  timestamp: string;
 }
 
 class Chat extends Block {
   constructor(props: Props) {
-    super('main', props);
+    super('div', props);
   }
 
   render() {
@@ -16,8 +20,4 @@ class Chat extends Block {
   }
 }
 
-const ChatPage = new Chat({
-  class: 'chat',
-});
-
-export default ChatPage;
+export default Chat;

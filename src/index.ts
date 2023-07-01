@@ -6,7 +6,7 @@ import LoginPage from './pages/Login';
 import NotFoundPage from './pages/NotFound';
 import InternalErrorPage from './pages/InternalError';
 import render from './helpers/render';
-import ChatPage from './pages/Chat';
+import ChatPage from './pages/Chats';
 import ProfilePage from './pages/Profile';
 import ProfileEditPage from './pages/ProfileEdit';
 import ProfilePasswordPage from './pages/ProfilePassword';
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         render(rootId, ProfilePasswordPage);
         break;
       }
-      case PATH.CHAT: {
+      case PATH.CHATS: {
         render(rootId, ChatPage);
         break;
       }
