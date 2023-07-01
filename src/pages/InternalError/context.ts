@@ -1,6 +1,8 @@
+import PATH from '../../constants/path';
+
 const chatLink = {
   class: 'link internal-error__link',
-  href: '#',
+  href: PATH.CHAT_LIST,
   text: 'Назад к чатам',
 };
 

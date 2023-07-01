@@ -12,6 +12,7 @@ import ProfileEditPage from './pages/ProfileEdit';
 import ProfilePasswordPage from './pages/ProfilePassword';
 import SignupPage from './pages/Signup';
 import IntroPage from './pages/IntroPage';
+import PATH from './constants/path';
 
 const rootId = '#app';
 
@@ -22,35 +23,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const getPage = () => {
     switch (pathname) {
-      case '/login': {
+      case PATH.LOGIN: {
         render(rootId, LoginPage);
         break;
       }
-      case '/signup': {
+      case PATH.SIGNUP: {
         render(rootId, SignupPage);
         break;
       }
-      case '/profile': {
+      case PATH.PROFILE: {
         render(rootId, ProfilePage);
         break;
       }
-      case '/profile-edit': {
+      case PATH.PROFILE_EDIT: {
         render(rootId, ProfileEditPage);
         break;
       }
-      case '/profile-password': {
+      case PATH.PROFILE_PASSWORD: {
         render(rootId, ProfilePasswordPage);
         break;
       }
-      case '/chat-list': {
+      case PATH.CHAT_LIST: {
         render(rootId, ChatListPage);
         break;
       }
-      case '/emulate500': {
+      case PATH.INTERNAL_ERROR: {
         render(rootId, InternalErrorPage);
         break;
       }
-      case '/': {
+      case PATH.ROOT: {
         render(rootId, IntroPage);
         break;
       }

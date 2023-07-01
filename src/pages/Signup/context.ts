@@ -1,3 +1,4 @@
+import PATH from '../../constants/path';
 import {
   loginPattern,
   passwordPattern,
@@ -93,7 +94,7 @@ const signupButton = {
 
 const signupLink = {
   class: 'link signup__link',
-  href: '#',
+  href: PATH.LOGIN,
   text: 'Войти',
 };
 

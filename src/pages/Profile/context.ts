@@ -1,3 +1,4 @@
+import PATH from '../../constants/path';
 import backImageUrl from '../../static/arrow_back.png';
 import emptyAvatarUrl from '../../static/empty_avatar.png';
 
@@ -56,24 +57,24 @@ const profilePhone = {
   inputType: 'text',
   label: 'Телефон',
   disabled: 'disabled',
-  value: '+7(909)9673030',
+  value: '+79099673030',
 };
 
 const changeDataLink = {
   class: 'link profile__link',
-  href: '#',
+  href: PATH.PROFILE_EDIT,
   text: 'Изменить данные',
 };
 
 const changePasswordLink = {
   class: 'link profile__link',
-  href: '#',
+  href: PATH.PROFILE_PASSWORD,
   text: 'Изменить пароль',
 };
 
 const logoutLink = {
   class: 'link profile__link_red',
-  href: '#',
+  href: PATH.ROOT,
   text: 'Выйти',
 };
 

@@ -1,3 +1,4 @@
+import PATH from '../../constants/path';
 import { loginPattern, passwordPattern } from '../../constants/validation';
 import { validateInput } from '../../helpers/validation';
 
@@ -38,7 +39,7 @@ const loginButton = {
 
 const loginLink = {
   class: 'link login__link',
-  href: '#',
+  href: PATH.SIGNUP,
   text: 'Зарегистрироваться',
 };
 
