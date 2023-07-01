@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         render(rootId, ProfilePasswordPage);
         break;
       }
-      case PATH.CHAT_LIST: {
+      case PATH.CHAT: {
         render(rootId, ChatPage);
         break;
       }

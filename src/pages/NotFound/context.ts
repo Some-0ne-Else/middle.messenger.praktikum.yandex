@@ -2,7 +2,7 @@ import PATH from '../../constants/path';
 
 const chatLink = {
   class: 'not-found__link link',
-  href: PATH.CHAT_LIST,
+  href: PATH.CHAT,
   text: 'Назад к чатам',
 };
 

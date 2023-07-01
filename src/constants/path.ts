@@ -5,7 +5,7 @@ enum PATHNAME {
   PROFILE = 'PROFILE',
   PROFILE_EDIT = 'PROFILE_EDIT',
   PROFILE_PASSWORD = 'PROFILE_PASSWORD',
-  CHAT_LIST = 'CHAT_LIST',
+  CHAT = 'CHAT',
   INTERNAL_ERROR = 'INTERNAL_ERROR',
   NOT_FOUND = 'NOT_FOUND',
 }
@@ -17,7 +17,7 @@ const PATH = {
   [PATHNAME.PROFILE]: '/profile',
   [PATHNAME.PROFILE_EDIT]: '/profile-edit',
   [PATHNAME.PROFILE_PASSWORD]: '/profile-password',
-  [PATHNAME.CHAT_LIST]: '/chat-list',
+  [PATHNAME.CHAT]: '/chat',
   [PATHNAME.INTERNAL_ERROR]: '/emulate500',
   [PATHNAME.NOT_FOUND]: '/random-url',
 };
