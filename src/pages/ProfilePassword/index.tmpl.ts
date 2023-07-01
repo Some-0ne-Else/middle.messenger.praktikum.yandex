@@ -6,7 +6,7 @@ const profilePasswordTemplate = `
   <div class="profile-password__container">
 <label for="avatar" class="profile-password__avatar-label"><img src={{emptyAvatarUrl}} /></label>
 <input class="profile-password__avatar-input" class="my" id="avatar" name="avatar" type="file"/>
-<form class="profile-password__form">
+<form class="profile-password__form" novalidate targetForEvents={{ targetForEvents }}>
 {{{profileOldPassword}}}
 {{{profileNewPassword}}}
 {{{profileRepeatNewPassword}}}

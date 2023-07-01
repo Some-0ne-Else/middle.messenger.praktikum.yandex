@@ -1,9 +1,10 @@
 import template from './index.tmpl';
-import Block, { BlockInstance } from '../../helpers/block';
+import Block, { BlockInstance, EventsInProps } from '../../helpers/block';
 import ProfileInput from '../../components/ProfileInput';
 import Button from '../../components/Button';
-import context from './context';
+import context, { inputErrorClass } from './context';
 import './styles.pcss';
+import { validateForm } from '../../helpers/validation';
 
 const profileOldPassword = new ProfileInput(context.profileOldPassword);
 const profileNewPassword = new ProfileInput(context.profileNewPassword);
@@ -18,6 +19,8 @@ interface Props {
   profileSaveButton: BlockInstance;
   backImageUrl: string;
   emptyAvatarUrl: string;
+  targetForEvents: boolean;
+  events: EventsInProps;
 }
 
 class ProfilePassword extends Block {
@@ -38,6 +41,19 @@ const ProfilePasswordPage = new ProfilePassword({
   profileSaveButton,
   backImageUrl: context.backImageUrl,
   emptyAvatarUrl: context.emptyAvatarUrl,
+  targetForEvents: true,
+  events: {
+    'submit': (e: Event) => {
+      e.preventDefault();
+      const form = e.target as HTMLFormElement;
+      const { isFormValid, formData } = validateForm(form, inputErrorClass);
+      if (!isFormValid) {
+        console.log('Validation error');
+      } else {
+        console.log(formData);
+      }
+    },
+  },
 });
 
 export default ProfilePasswordPage;
