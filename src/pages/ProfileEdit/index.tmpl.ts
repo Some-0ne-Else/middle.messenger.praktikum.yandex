@@ -6,7 +6,7 @@ const profileEditTemplate = `<main class="profile-edit">
   <div class="profile-edit__container">
 <label for="avatar" class="profile-edit__avatar-label"><img src={{emptyAvatarUrl}} /></label>
 <input class="profile-edit__avatar-input" class="my" id="avatar" name="avatar" type="file"/>
-<form class="profile-edit__form">
+<form class="profile-edit__form" novalidate targetForEvents={{ targetForEvents }}>
 {{{profileEmail}}}
 {{{profileLogin}}}
 {{{profileName}}}

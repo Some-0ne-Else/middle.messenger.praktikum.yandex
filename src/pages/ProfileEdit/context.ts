@@ -1,5 +1,22 @@
+import {
+  emailPattern,
+  firstNameSecondNamePattern,
+  loginPattern,
+  noValidationPattern,
+  phonePattern,
+} from '../../constants/validation';
+import { validateInput } from '../../helpers/validation';
 import backImageUrl from '../../static/arrow_back.png';
 import emptyAvatarUrl from '../../static/empty_avatar.png';
+
+export const inputErrorClass = 'profile-input__input_error';
+
+const onBlurEvent = {
+  'blur': (e: Event) => {
+    const input = e.target as HTMLInputElement;
+    validateInput(input, inputErrorClass);
+  },
+};
 
 const profileEmail = {
   class: 'profile-input',
@@ -7,6 +24,9 @@ const profileEmail = {
   inputType: 'email',
   label: 'Почта',
   value: 'pochta@yandex.ru',
+  targetForEvents: true,
+  pattern: emailPattern,
+  events: { ...onBlurEvent },
 };
 
 const profileLogin = {
@@ -15,6 +35,9 @@ const profileLogin = {
   inputType: 'text',
   label: 'Логин',
   value: 'ivanivanov',
+  targetForEvents: true,
+  pattern: loginPattern,
+  events: { ...onBlurEvent },
 };
 
 const profileName = {
@@ -23,6 +46,9 @@ const profileName = {
   inputType: 'text',
   label: 'Имя',
   value: 'Иван',
+  targetForEvents: true,
+  pattern: firstNameSecondNamePattern,
+  events: { ...onBlurEvent },
 };
 
 const profileSurname = {
@@ -31,6 +57,9 @@ const profileSurname = {
   inputType: 'text',
   label: 'Фамилия',
   value: 'Иванов',
+  targetForEvents: true,
+  pattern: firstNameSecondNamePattern,
+  events: { ...onBlurEvent },
 };
 
 const profileDisplayName = {
@@ -39,6 +68,9 @@ const profileDisplayName = {
   inputType: 'text',
   label: 'Имя в чате',
   value: 'Иванов',
+  targetForEvents: true,
+  pattern: noValidationPattern,
+  events: { ...onBlurEvent },
 };
 
 const profilePhone = {
@@ -46,7 +78,10 @@ const profilePhone = {
   name: 'phone',
   inputType: 'text',
   label: 'Телефон',
-  value: '+7(909)9673030',
+  value: '+79099673030',
+  targetForEvents: true,
+  pattern: phonePattern,
+  events: { ...onBlurEvent },
 };
 
 const profileSaveButton = {
