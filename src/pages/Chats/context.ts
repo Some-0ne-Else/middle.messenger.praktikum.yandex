@@ -24,7 +24,7 @@ const chat2 = {
   lastMessage: 'Друзья, у меня для вас особенный выпуск новостей!',
   timestamp: '15:12',
   messageCounterImage,
-  messageCounter: '4',
+  messageCounter: '2',
   events: {
     'click': () => {
       console.log('click2');

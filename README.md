@@ -35,4 +35,5 @@
 2. Приложение будет собрано и доступно на 3000 порту
 
 ### Деплой проекта
-Проект задеплоен по адресу: https://majestic-empanada-db2ae3.netlify.app/
+
+Проект задеплоен по адресу: <https://majestic-empanada-db2ae3.netlify.app/>

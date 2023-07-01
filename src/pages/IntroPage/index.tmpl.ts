@@ -3,28 +3,28 @@ const template = `
 <nav>
 <ul>
 <li>
-<a href="/login">Логин</a>
+<a href="{{loginUrl}}">Логин</a>
 </li>
 <li>
-<a href="/signup">Регистрация</a>
+<a href="{{signupUrl}}">Регистрация</a>
 </li>
 <li>
-<a href="/profile">Отображение профиля</a>
+<a href="{{profileUrl}}">Отображение профиля</a>
 </li>
 <li>
-<a href="/profile-edit">Редактирование профиля</a>
+<a href="{{profileEditUrl}}">Редактирование профиля</a>
 </li>
 <li>
-<a href="/profile-password">Смена пароля</a>
+<a href="{{profilePasswordUrl}}">Смена пароля</a>
 </li>
 <li>
-<a href="/emulate500">Внутренняя ошибка сервера</a>
+<a href="{{internalErrorUrl}}">Внутренняя ошибка сервера</a>
 </li>
 <li>
-<a href="/some-random-url">Страница не найдена</a>
+<a href="{{notFoundUrl}}">Страница не найдена</a>
 </li>
 <li>
-<a href="/chat-list">Заглушка страницы чатов</a>
+<a href="{{chatsUrl}}">Заглушка страницы чатов</a>
 </li>
 </ul>
 </nav>`;

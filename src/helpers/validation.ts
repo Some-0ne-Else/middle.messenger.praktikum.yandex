@@ -1,7 +1,6 @@
 const checkInputValidity = (inputElement: HTMLInputElement) => {
   const { value } = inputElement;
   const pattern = inputElement.getAttribute('pattern');
-  console.log(pattern);
   if (!pattern) {
     return true;
   }
