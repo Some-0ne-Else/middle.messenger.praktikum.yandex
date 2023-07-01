@@ -3,6 +3,13 @@ import { validateInput } from '../../helpers/validation';
 
 export const inputErrorClass = 'input__input_error';
 
+const onBlurEvent = {
+  'blur': (e: Event) => {
+    const input = e.target as HTMLInputElement;
+    validateInput(input, inputErrorClass);
+  },
+};
+
 const loginInput = {
   class: 'input login__wrapper',
   name: 'login',
@@ -10,12 +17,7 @@ const loginInput = {
   inputType: 'text',
   targetForEvents: true,
   pattern: loginPattern,
-  events: {
-    'blur': (e: Event) => {
-      const input = e.target as HTMLInputElement;
-      validateInput(input, inputErrorClass);
-    },
-  },
+  events: { ...onBlurEvent },
 };
 
 const passwordInput = {
@@ -25,12 +27,7 @@ const passwordInput = {
   inputType: 'password',
   targetForEvents: true,
   pattern: passwordPattern,
-  events: {
-    'blur': (e: Event) => {
-      const input = e.target as HTMLInputElement;
-      validateInput(input, inputErrorClass);
-    },
-  },
+  events: { ...onBlurEvent },
 };
 
 const loginButton = {

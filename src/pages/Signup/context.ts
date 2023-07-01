@@ -1,14 +1,38 @@
+import {
+  loginPattern,
+  passwordPattern,
+  emailPattern,
+  phonePattern,
+  firstNameSecondNamePattern,
+} from '../../constants/validation';
+import { validateInput } from '../../helpers/validation';
+
+export const inputErrorClass = 'input__input_error';
+
+const onBlurEvent = {
+  'blur': (e: Event) => {
+    const input = e.target as HTMLInputElement;
+    validateInput(input, inputErrorClass);
+  },
+};
+
 const emailInput = {
   class: 'input signup__wrapper',
   name: 'email',
   label: 'Почта',
   inputType: 'email',
+  targetForEvents: true,
+  pattern: emailPattern,
+  events: { ...onBlurEvent },
 };
 const loginInput = {
   class: 'input signup__wrapper',
   name: 'login',
   label: 'Логин',
   inputType: 'text',
+  targetForEvents: true,
+  pattern: loginPattern,
+  events: { ...onBlurEvent },
 };
 
 const nameInput = {
@@ -16,6 +40,9 @@ const nameInput = {
   name: 'first_name',
   label: 'Имя',
   inputType: 'text',
+  targetForEvents: true,
+  pattern: firstNameSecondNamePattern,
+  events: { ...onBlurEvent },
 };
 
 const surnameInput = {
@@ -23,6 +50,9 @@ const surnameInput = {
   name: 'second_name',
   label: 'Фамилия',
   inputType: 'text',
+  targetForEvents: true,
+  pattern: firstNameSecondNamePattern,
+  events: { ...onBlurEvent },
 };
 
 const phoneInput = {
@@ -30,6 +60,9 @@ const phoneInput = {
   name: 'phone',
   label: 'Телефон',
   inputType: 'tel',
+  targetForEvents: true,
+  pattern: phonePattern,
+  events: { ...onBlurEvent },
 };
 
 const passwordInput = {
@@ -37,6 +70,9 @@ const passwordInput = {
   name: 'password',
   label: 'Пароль',
   inputType: 'password',
+  targetForEvents: true,
+  pattern: passwordPattern,
+  events: { ...onBlurEvent },
 };
 
 const repeatPasswordInput = {
@@ -44,6 +80,9 @@ const repeatPasswordInput = {
   name: 'repeat-password',
   label: 'Пароль (ещё раз)',
   inputType: 'password',
+  targetForEvents: true,
+  pattern: passwordPattern,
+  events: { ...onBlurEvent },
 };
 
 const signupButton = {
