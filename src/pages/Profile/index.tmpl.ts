@@ -1,7 +1,5 @@
 const profileTemplate = `
-  <aside class="profile__aside">
-  <button class="profile__back-button"><img src={{backImageUrl}} /></button>
-  </aside>
+{{{profileSidebar}}}
 <div class="profile__content">
   <div class="profile__container">
 <label for="avatar" class="profile__avatar-label"><img src={{emptyAvatarUrl}} /></label>

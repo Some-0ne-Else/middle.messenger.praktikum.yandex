@@ -51,6 +51,15 @@ const profileSaveButton = {
   text: 'Сохранить',
 };
 
+const profileSidebar = {
+  class: 'profile-sidebar',
+  events: {
+    'click': () => {
+      window.history.back();
+    },
+  },
+};
+
 const profilePasswordContext = {
   profileOldPassword,
   profileNewPassword,
@@ -58,6 +67,7 @@ const profilePasswordContext = {
   profileSaveButton,
   backImageUrl,
   emptyAvatarUrl,
+  profileSidebar,
 };
 
 export default profilePasswordContext;

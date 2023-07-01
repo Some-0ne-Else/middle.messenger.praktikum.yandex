@@ -1,5 +1,4 @@
 import PATH from '../../constants/path';
-import backImageUrl from '../../static/arrow_back.png';
 import emptyAvatarUrl from '../../static/empty_avatar.png';
 
 const profileHeader = {
@@ -78,6 +77,15 @@ const logoutLink = {
   text: 'Выйти',
 };
 
+const profileSidebar = {
+  class: 'profile-sidebar',
+  events: {
+    'click': () => {
+      window.history.back();
+    },
+  },
+};
+
 export default {
   profileHeader,
   profileEmail,
@@ -89,6 +97,6 @@ export default {
   changeDataLink,
   changePasswordLink,
   logoutLink,
-  backImageUrl,
   emptyAvatarUrl,
+  profileSidebar,
 };

@@ -1,7 +1,5 @@
 const profileEditTemplate = `<main class="profile-edit">
-  <aside class="profile-edit__aside">
-  <button class="profile-edit__back-button"><img src={{backImageUrl}} /></button>
-  </aside>
+{{{profileSidebar}}}
 <div class="profile-edit__content">
   <div class="profile-edit__container">
 <label for="avatar" class="profile-edit__avatar-label"><img src={{emptyAvatarUrl}} /></label>

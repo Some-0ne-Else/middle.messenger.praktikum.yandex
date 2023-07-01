@@ -6,6 +6,7 @@ import Button from '../../components/Button';
 import context, { inputErrorClass } from './context';
 import './styles.pcss';
 import { validateForm } from '../../helpers/validation';
+import ProfileSidebar from '../../components/ProfileSidebar';
 
 const profileEmail = new ProfileInput(context.profileEmail);
 const profileLogin = new ProfileInput(context.profileLogin);
@@ -14,6 +15,7 @@ const profileSurname = new ProfileInput(context.profileSurname);
 const profileDisplayName = new ProfileInput(context.profileDisplayName);
 const profilePhone = new ProfileInput(context.profilePhone);
 const profileSaveButton = new Button(context.profileSaveButton);
+const profileSidebar = new ProfileSidebar(context.profileSidebar);
 
 interface Props {
   class: string;
@@ -24,8 +26,8 @@ interface Props {
   profileDisplayName: BlockInstance;
   profilePhone: BlockInstance;
   profileSaveButton: BlockInstance;
-  backImageUrl: string;
   emptyAvatarUrl: string;
+  profileSidebar: BlockInstance;
   targetForEvents: boolean;
   events: EventsInProps;
 }
@@ -49,8 +51,8 @@ const ProfileEditPage = new ProfileEdit({
   profileDisplayName,
   profilePhone,
   profileSaveButton,
-  backImageUrl: context.backImageUrl,
   emptyAvatarUrl: context.emptyAvatarUrl,
+  profileSidebar,
   targetForEvents: true,
   events: {
     'submit': (e: Event) => {
