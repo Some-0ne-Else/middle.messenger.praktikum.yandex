@@ -6,7 +6,7 @@ import LoginPage from './pages/Login';
 import NotFoundPage from './pages/NotFound';
 import InternalErrorPage from './pages/InternalError';
 import render from './helpers/render';
-import ChatListPage from './pages/ChatList';
+import ChatListPage from './pages/Chat';
 import ProfilePage from './pages/Profile';
 import ProfileEditPage from './pages/ProfileEdit';
 import ProfilePasswordPage from './pages/ProfilePassword';

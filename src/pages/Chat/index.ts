@@ -17,7 +17,7 @@ class ChatList extends Block {
 }
 
 const ChatListPage = new ChatList({
-  class: 'chat-list',
+  class: 'chat',
 });
 
 export default ChatListPage;
