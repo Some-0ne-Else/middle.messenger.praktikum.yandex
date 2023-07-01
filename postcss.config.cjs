@@ -2,6 +2,7 @@ const generalVariables = require ('./config/variables.cjs');
 /** @type {import('postcss-load-config').Config} */
 const config = {
     plugins: [
+      require('stylelint')({fix: true }),
       require('postcss-import'),
       require('autoprefixer'),
       require('postcss-mixins'),
@@ -9,5 +10,5 @@ const config = {
       require('postcss-nested')
     ]
   }
-  
+
   module.exports = config

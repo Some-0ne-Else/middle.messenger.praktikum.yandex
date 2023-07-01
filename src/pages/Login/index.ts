@@ -45,8 +45,10 @@ const LoginPage = new Login({
       const form = e.target as HTMLFormElement;
       const { isFormValid, formData } = validateForm(form, inputErrorClass);
       if (!isFormValid) {
+        // eslint-disable-next-line no-console
         console.log('Validation error');
       } else {
+        // eslint-disable-next-line no-console
         console.log(formData);
       }
     },
