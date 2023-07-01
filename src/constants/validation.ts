@@ -12,3 +12,5 @@ export const emailPattern = '^(([^<>()[\\]\\\\.,;:\\s@"]+(\\.[^<>()[\\]\\\\.,;:\
 export const phonePattern = '^[\\\\+]*\\\d{10,15}$';
 
 export const noValidationPattern = '.*';
+
+export const notEmptyPattern = '.+';
