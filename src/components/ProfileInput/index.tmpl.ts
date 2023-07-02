@@ -6,6 +6,7 @@ const profileInputTemplate = `
   {{disabled}} value={{value}}
   pattern={{ pattern }}
   targetForEvents={{ targetForEvents }} />
+  <p class="profile-input__error-text">{{errorText}}</p>
 `;
 
 export default profileInputTemplate;

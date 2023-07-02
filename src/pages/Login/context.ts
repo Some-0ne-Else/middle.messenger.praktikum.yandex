@@ -8,12 +8,12 @@ import {
 import { validateInput } from '../../helpers/validation';
 
 export const inputErrorClass = 'input__input_error';
-export const textErrorClass = 'input__error-text_visible';
+export const errorTextClass = 'input__error-text_visible';
 
 const onBlurEvent = {
   'blur': (e: Event) => {
     const input = e.target as HTMLInputElement;
-    validateInput(input, inputErrorClass, textErrorClass);
+    validateInput(input, inputErrorClass, errorTextClass);
   },
 };
 

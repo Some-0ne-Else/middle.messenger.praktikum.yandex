@@ -3,7 +3,7 @@ import Block, { BlockInstance, EventsInProps } from '../../helpers/block';
 import ProfileInput from '../../components/ProfileInput';
 
 import Button from '../../components/Button';
-import context, { inputErrorClass } from './context';
+import context, { errorTextClass, inputErrorClass } from './context';
 import './styles.pcss';
 import { validateForm } from '../../helpers/validation';
 import ProfileSidebar from '../../components/ProfileSidebar';
@@ -19,6 +19,7 @@ const profileSidebar = new ProfileSidebar(context.profileSidebar);
 
 interface Props {
   class: string;
+  profileSidebar: BlockInstance;
   profileEmail: BlockInstance;
   profileLogin: BlockInstance;
   profileName: BlockInstance;
@@ -27,7 +28,6 @@ interface Props {
   profilePhone: BlockInstance;
   profileSaveButton: BlockInstance;
   emptyAvatarUrl: string;
-  profileSidebar: BlockInstance;
   targetForEvents: boolean;
   events: EventsInProps;
 }
@@ -44,6 +44,7 @@ class ProfileEdit extends Block {
 
 const ProfileEditPage = new ProfileEdit({
   class: 'profile-edit',
+  profileSidebar,
   profileEmail,
   profileLogin,
   profileName,
@@ -52,13 +53,12 @@ const ProfileEditPage = new ProfileEdit({
   profilePhone,
   profileSaveButton,
   emptyAvatarUrl: context.emptyAvatarUrl,
-  profileSidebar,
   targetForEvents: true,
   events: {
     'submit': (e: Event) => {
       e.preventDefault();
       const form = e.target as HTMLFormElement;
-      const { isFormValid, formData } = validateForm(form, inputErrorClass);
+      const { isFormValid, formData } = validateForm(form, inputErrorClass, errorTextClass);
       if (!isFormValid) {
         // eslint-disable-next-line no-console
         console.log('Validation error');

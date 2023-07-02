@@ -9,6 +9,8 @@ type Props = {
   label: string;
   disabled?: string;
   value: string;
+  pattern?: string;
+  errorText?: string;
 };
 
 class ProfileInput extends Block {

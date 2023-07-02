@@ -39,10 +39,25 @@
 }
 
 .profile-input__input_error{
-  color: red;
+  color: $errorColor;
 }
 
  .profile-input__input:focus{
   color: $defaultTextColor;
   text-align: left;
  }
+
+ .profile-input__error-text{
+  margin: 6px 0 0 0;
+  color: $errorColor;
+  font-size: 9px;
+  font-family: $fontFamily;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 9px;
+  display: none;
+ }
+
+ .profile-input__error-text_visible{
+  display: flex;
+}
