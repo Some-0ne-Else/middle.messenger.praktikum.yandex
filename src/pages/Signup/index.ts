@@ -3,10 +3,10 @@ import Block, { BlockInstance, EventsInProps } from '../../helpers/block';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Link from '../../components/Link';
-import context, { inputErrorClass } from './context';
+import context, { inputErrorClass, errorTextClass } from './context';
+import { validateForm } from '../../helpers/validation';
 
 import './styles.pcss';
-import { validateForm } from '../../helpers/validation';
 
 const emailInput = new Input(context.emailInput);
 const loginInput = new Input(context.loginInput);
@@ -59,7 +59,7 @@ const SignupPage = new Signup({
     'submit': (e: Event) => {
       e.preventDefault();
       const form = e.target as HTMLFormElement;
-      const { isFormValid, formData } = validateForm(form, inputErrorClass);
+      const { isFormValid, formData } = validateForm(form, inputErrorClass, errorTextClass);
       if (!isFormValid) {
         // eslint-disable-next-line no-console
         console.log('Validation error');

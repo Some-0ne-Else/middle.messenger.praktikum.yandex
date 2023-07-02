@@ -1,13 +1,19 @@
 import PATH from '../../constants/path';
-import { loginPattern, passwordPattern } from '../../constants/validation';
+import {
+  loginPattern,
+  loginPatternDescription,
+  passwordPattern,
+  passwordPatternDescription,
+} from '../../constants/validation';
 import { validateInput } from '../../helpers/validation';
 
 export const inputErrorClass = 'input__input_error';
+export const textErrorClass = 'input__error-text_visible';
 
 const onBlurEvent = {
   'blur': (e: Event) => {
     const input = e.target as HTMLInputElement;
-    validateInput(input, inputErrorClass);
+    validateInput(input, inputErrorClass, textErrorClass);
   },
 };
 
@@ -18,6 +24,7 @@ const loginInput = {
   inputType: 'text',
   targetForEvents: true,
   pattern: loginPattern,
+  errorText: loginPatternDescription,
   events: { ...onBlurEvent },
 };
 
@@ -28,6 +35,7 @@ const passwordInput = {
   inputType: 'password',
   targetForEvents: true,
   pattern: passwordPattern,
+  errorText: passwordPatternDescription,
   events: { ...onBlurEvent },
 };
 

@@ -7,8 +7,8 @@
   text-align:left;
   font-family: $fontFamily;
   font-weight: 500;
-  font-size: 9px;
-  line-height: 9px;
+  font-size: 12px;
+  line-height: 12px;
   color: $secondaryColor;
   margin-top: 16px;
 }
@@ -17,11 +17,26 @@
   margin-top: 8px;
   width: 100%;
   border: 0;
-  border-bottom: 1px solid #3369F3;
+  border-bottom: 1px solid $blueColor;
   outline: none;
 }
 
 .input__input_error{
   color: red;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid $errorColor;
+}
+
+.input__error-text{
+  margin: 6px 0 0 0;
+  color: $errorColor;
+  font-size: 9px;
+  font-family: $fontFamily;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 9px;
+  display: none;
+}
+
+.input__error-text_visible{
+  display: flex;
 }

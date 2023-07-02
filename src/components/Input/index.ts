@@ -7,7 +7,8 @@ interface Props {
   inputType: string;
   name: string;
   label: string;
-  pattern?: string;
+  pattern: string;
+  errorText: string;
 }
 
 class Input extends Block {

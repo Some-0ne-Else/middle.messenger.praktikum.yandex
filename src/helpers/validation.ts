@@ -12,19 +12,33 @@ export const markInputError = (
   inputElement: HTMLInputElement,
   isValid: boolean,
   inputErrorClass: string,
+  textErrorClass: string,
 ) => {
+  const errorText = inputElement.closest('div')?.querySelector('p');
   if (!isValid) {
     inputElement.classList.add(inputErrorClass);
-  } else inputElement.classList.remove(inputErrorClass);
+    errorText?.classList.add(textErrorClass);
+  } else {
+    inputElement.classList.remove(inputErrorClass);
+    errorText?.classList.remove(textErrorClass);
+  }
 };
 
-export const validateInput = (inputElement: HTMLInputElement, inputErrorClass: string) => {
+export const validateInput = (
+  inputElement: HTMLInputElement,
+  inputErrorClass: string,
+  textErrorClass: string,
+) => {
   const isValid = checkInputValidity(inputElement);
-  markInputError(inputElement, isValid, inputErrorClass);
+  markInputError(inputElement, isValid, inputErrorClass, textErrorClass);
   return isValid;
 };
 
-export const validateForm = (form: HTMLFormElement, inputErrorClass: string) => {
+export const validateForm = (
+  form: HTMLFormElement,
+  inputErrorClass: string,
+  textErrorClass: string,
+) => {
   const formState: Record<string, Record<string, string | boolean>> = {};
 
   const inputList = Array.from(form.querySelectorAll('input'));
@@ -32,7 +46,7 @@ export const validateForm = (form: HTMLFormElement, inputErrorClass: string) => 
     const name = input.getAttribute('name')!;
     const { value } = input;
 
-    const isValid = validateInput(input, inputErrorClass);
+    const isValid = validateInput(input, inputErrorClass, textErrorClass);
 
     formState[name] = { value, isValid };
   });

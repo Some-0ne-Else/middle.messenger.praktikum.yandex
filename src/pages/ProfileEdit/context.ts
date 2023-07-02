@@ -1,9 +1,11 @@
 import {
   emailPattern,
-  firstNameSecondNamePattern,
+  nameAndSurnamePattern,
+  nameAndSurnamePatternDescription,
   loginPattern,
   noValidationPattern,
   phonePattern,
+  loginPatternDescription,
 } from '../../constants/validation';
 import { validateInput } from '../../helpers/validation';
 import backImageUrl from '../../static/arrow_back.png';
@@ -14,7 +16,7 @@ export const inputErrorClass = 'profile-input__input_error';
 const onBlurEvent = {
   'blur': (e: Event) => {
     const input = e.target as HTMLInputElement;
-    validateInput(input, inputErrorClass);
+    validateInput(input, inputErrorClass, inputErrorClass);
   },
 };
 
@@ -37,6 +39,7 @@ const profileLogin = {
   value: 'ivanivanov',
   targetForEvents: true,
   pattern: loginPattern,
+  textError: loginPatternDescription,
   events: { ...onBlurEvent },
 };
 
@@ -47,7 +50,8 @@ const profileName = {
   label: 'Имя',
   value: 'Иван',
   targetForEvents: true,
-  pattern: firstNameSecondNamePattern,
+  pattern: nameAndSurnamePattern,
+
   events: { ...onBlurEvent },
 };
 
@@ -58,7 +62,7 @@ const profileSurname = {
   label: 'Фамилия',
   value: 'Иванов',
   targetForEvents: true,
-  pattern: firstNameSecondNamePattern,
+  pattern: nameAndSurnamePattern,
   events: { ...onBlurEvent },
 };
 

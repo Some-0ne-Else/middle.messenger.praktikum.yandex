@@ -4,6 +4,8 @@ const inputTemplate = `
    id={{ name }} name={{ name }}
    type={{ inputType }}
    targetForEvents={{ targetForEvents }}
-   pattern={{ pattern }} />`;
+   pattern={{ pattern }} />
+   <p class="input__error-text">{{errorText}}</p>
+   `;
 
 export default inputTemplate;

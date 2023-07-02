@@ -4,16 +4,22 @@ import {
   passwordPattern,
   emailPattern,
   phonePattern,
-  firstNameSecondNamePattern,
+  nameAndSurnamePattern,
+  nameAndSurnamePatternDescription,
+  emailPatternDescription,
+  loginPatternDescription,
+  phonePatternDescription,
+  passwordPatternDescription,
 } from '../../constants/validation';
 import { validateInput } from '../../helpers/validation';
 
 export const inputErrorClass = 'input__input_error';
+export const errorTextClass = 'input__error-text_visible';
 
 const onBlurEvent = {
   'blur': (e: Event) => {
     const input = e.target as HTMLInputElement;
-    validateInput(input, inputErrorClass);
+    validateInput(input, inputErrorClass, errorTextClass);
   },
 };
 
@@ -24,6 +30,7 @@ const emailInput = {
   inputType: 'email',
   targetForEvents: true,
   pattern: emailPattern,
+  errorText: emailPatternDescription,
   events: { ...onBlurEvent },
 };
 const loginInput = {
@@ -33,6 +40,7 @@ const loginInput = {
   inputType: 'text',
   targetForEvents: true,
   pattern: loginPattern,
+  errorText: loginPatternDescription,
   events: { ...onBlurEvent },
 };
 
@@ -42,7 +50,8 @@ const nameInput = {
   label: 'Имя',
   inputType: 'text',
   targetForEvents: true,
-  pattern: firstNameSecondNamePattern,
+  pattern: nameAndSurnamePattern,
+  errorText: nameAndSurnamePatternDescription,
   events: { ...onBlurEvent },
 };
 
@@ -52,7 +61,8 @@ const surnameInput = {
   label: 'Фамилия',
   inputType: 'text',
   targetForEvents: true,
-  pattern: firstNameSecondNamePattern,
+  pattern: nameAndSurnamePattern,
+  errorText: nameAndSurnamePatternDescription,
   events: { ...onBlurEvent },
 };
 
@@ -63,6 +73,7 @@ const phoneInput = {
   inputType: 'tel',
   targetForEvents: true,
   pattern: phonePattern,
+  errorText: phonePatternDescription,
   events: { ...onBlurEvent },
 };
 
@@ -73,6 +84,7 @@ const passwordInput = {
   inputType: 'password',
   targetForEvents: true,
   pattern: passwordPattern,
+  errorText: passwordPatternDescription,
   events: { ...onBlurEvent },
 };
 
@@ -83,6 +95,7 @@ const repeatPasswordInput = {
   inputType: 'password',
   targetForEvents: true,
   pattern: passwordPattern,
+  errorText: passwordPatternDescription,
   events: { ...onBlurEvent },
 };
 
