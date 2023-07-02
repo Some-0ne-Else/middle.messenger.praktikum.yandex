@@ -2,7 +2,7 @@ import template from './index.tmpl';
 import Block, { BlockInstance, EventsInProps } from '../../helpers/block';
 import ProfileInput from '../../components/ProfileInput';
 import Button from '../../components/Button';
-import context, { inputErrorClass } from './context';
+import context, { errorTextClass, inputErrorClass } from './context';
 import './styles.pcss';
 import { validateForm } from '../../helpers/validation';
 import ProfileSidebar from '../../components/ProfileSidebar';
@@ -48,7 +48,7 @@ const ProfilePasswordPage = new ProfilePassword({
     'submit': (e: Event) => {
       e.preventDefault();
       const form = e.target as HTMLFormElement;
-      const { isFormValid, formData } = validateForm(form, inputErrorClass);
+      const { isFormValid, formData } = validateForm(form, inputErrorClass, errorTextClass);
       if (!isFormValid) {
         // eslint-disable-next-line no-console
         console.log('Validation error');

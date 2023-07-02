@@ -1,14 +1,15 @@
-import { passwordPattern } from '../../constants/validation';
+import { passwordPattern, passwordPatternDescription } from '../../constants/validation';
 import { validateInput } from '../../helpers/validation';
 import backImageUrl from '../../static/arrow_back.png';
 import emptyAvatarUrl from '../../static/empty_avatar.png';
 
 export const inputErrorClass = 'profile-input__input_error';
+export const errorTextClass = 'profile-input__error-text_visible';
 
 const onBlurEvent = {
   'blur': (e: Event) => {
     const input = e.target as HTMLInputElement;
-    validateInput(input, inputErrorClass);
+    validateInput(input, inputErrorClass, errorTextClass);
   },
 };
 
@@ -20,6 +21,7 @@ const profileOldPassword = {
   value: 'Oldpassword1',
   targetForEvents: true,
   pattern: passwordPattern,
+  errorText: passwordPatternDescription,
   events: { ...onBlurEvent },
 };
 
@@ -31,6 +33,7 @@ const profileNewPassword = {
   value: 'Newpassword1',
   targetForEvents: true,
   pattern: passwordPattern,
+  errorText: passwordPatternDescription,
   events: { ...onBlurEvent },
 };
 
@@ -42,6 +45,7 @@ const profileRepeatNewPassword = {
   value: 'Newpassword1',
   targetForEvents: true,
   pattern: passwordPattern,
+  errorText: passwordPatternDescription,
   events: { ...onBlurEvent },
 };
 
