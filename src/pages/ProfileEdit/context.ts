@@ -102,8 +102,9 @@ const profileSaveButton = {
   text: 'Сохранить',
 };
 
-const profileSidebar = {
-  class: 'profile-sidebar',
+const profileSidebarButton = {
+  class: 'profile-sidebar__back-button',
+  type: 'button',
   events: {
     'click': () => {
       window.history.back();
@@ -121,5 +122,5 @@ export default {
   profileSaveButton,
   backImageUrl,
   emptyAvatarUrl,
-  profileSidebar,
+  profileSidebarButton,
 };

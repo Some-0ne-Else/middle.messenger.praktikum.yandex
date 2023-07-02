@@ -4,20 +4,18 @@ import './styles.pcss';
 
 import backImageUrl from '../../static/arrow_back.png';
 
-const targetForEvents = true;
-
 interface Props {
   class: string;
-  targetForEvents?: boolean;
+  type: string;
 }
 
 class ProfileSidebar extends Block {
   constructor(props: Props) {
-    super('aside', props);
+    super('button', props);
   }
 
   render() {
-    return this.compile(template, { backImageUrl, targetForEvents, ...this.props });
+    return this.compile(template, { ...this.props, backImageUrl });
   }
 }
 

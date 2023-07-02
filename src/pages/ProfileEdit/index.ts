@@ -6,7 +6,7 @@ import Button from '../../components/Button';
 import context, { errorTextClass, inputErrorClass } from './context';
 import './styles.pcss';
 import { validateForm } from '../../helpers/validation';
-import ProfileSidebar from '../../components/ProfileSidebar';
+import ProfileSidebar from '../../components/ProfileSidebarButton';
 
 const profileEmail = new ProfileInput(context.profileEmail);
 const profileLogin = new ProfileInput(context.profileLogin);
@@ -15,11 +15,11 @@ const profileSurname = new ProfileInput(context.profileSurname);
 const profileDisplayName = new ProfileInput(context.profileDisplayName);
 const profilePhone = new ProfileInput(context.profilePhone);
 const profileSaveButton = new Button(context.profileSaveButton);
-const profileSidebar = new ProfileSidebar(context.profileSidebar);
+const profileSidebarButton = new ProfileSidebar(context.profileSidebarButton);
 
 interface Props {
   class: string;
-  profileSidebar: BlockInstance;
+  profileSidebarButton: BlockInstance;
   profileEmail: BlockInstance;
   profileLogin: BlockInstance;
   profileName: BlockInstance;
@@ -44,7 +44,7 @@ class ProfileEdit extends Block {
 
 const ProfileEditPage = new ProfileEdit({
   class: 'profile-edit',
-  profileSidebar,
+  profileSidebarButton,
   profileEmail,
   profileLogin,
   profileName,

@@ -77,8 +77,9 @@ const logoutLink = {
   text: 'Выйти',
 };
 
-const profileSidebar = {
-  class: 'profile-sidebar',
+const profileSidebarButton = {
+  class: 'profile-sidebar__back-button',
+  type: 'button',
   events: {
     'click': () => {
       window.history.back();
@@ -98,5 +99,5 @@ export default {
   changePasswordLink,
   logoutLink,
   emptyAvatarUrl,
-  profileSidebar,
+  profileSidebarButton,
 };

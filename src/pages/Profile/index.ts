@@ -4,7 +4,7 @@ import ProfileInput from '../../components/ProfileInput';
 import Link from '../../components/Link';
 import context from './context';
 import './styles.pcss';
-import ProfileSidebar from '../../components/ProfileSidebar';
+import ProfileSidebar from '../../components/ProfileSidebarButton';
 
 const profileEmail = new ProfileInput(context.profileEmail);
 const profileLogin = new ProfileInput(context.profileLogin);
@@ -15,7 +15,7 @@ const profilePhone = new ProfileInput(context.profilePhone);
 const changeDataLink = new Link(context.changeDataLink);
 const changePasswordLink = new Link(context.changePasswordLink);
 const logoutLink = new Link(context.logoutLink);
-const profileSidebar = new ProfileSidebar(context.profileSidebar);
+const profileSidebarButton = new ProfileSidebar(context.profileSidebarButton);
 
 interface Props {
   class: string;
@@ -30,7 +30,7 @@ interface Props {
   changePasswordLink: BlockInstance;
   logoutLink: BlockInstance;
   emptyAvatarUrl: string;
-  profileSidebar: BlockInstance;
+  profileSidebarButton: BlockInstance;
 }
 
 class Profile extends Block {
@@ -56,7 +56,7 @@ const ProfilePage = new Profile({
   changePasswordLink,
   logoutLink,
   emptyAvatarUrl: context.emptyAvatarUrl,
-  profileSidebar,
+  profileSidebarButton,
 });
 
 export default ProfilePage;

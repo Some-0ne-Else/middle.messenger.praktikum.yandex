@@ -1,5 +1,7 @@
 const profilePasswordTemplate = `
-{{{profileSidebar}}}
+<aside class="profile-sidebar">
+{{{profileSidebarButton}}}
+</aside>
 <div class="profile-password__content">
   <div class="profile-password__container">
 <label for="avatar" class="profile-password__avatar-label"><img src={{emptyAvatarUrl}} /></label>

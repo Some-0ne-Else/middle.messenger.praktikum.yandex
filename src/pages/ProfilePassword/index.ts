@@ -5,13 +5,13 @@ import Button from '../../components/Button';
 import context, { errorTextClass, inputErrorClass } from './context';
 import './styles.pcss';
 import { validateForm } from '../../helpers/validation';
-import ProfileSidebar from '../../components/ProfileSidebar';
+import ProfileSidebar from '../../components/ProfileSidebarButton';
 
 const profileOldPassword = new ProfileInput(context.profileOldPassword);
 const profileNewPassword = new ProfileInput(context.profileNewPassword);
 const profileRepeatNewPassword = new ProfileInput(context.profileRepeatNewPassword);
 const profileSaveButton = new Button(context.profileSaveButton);
-const profileSidebar = new ProfileSidebar(context.profileSidebar);
+const profileSidebarButton = new ProfileSidebar(context.profileSidebarButton);
 
 interface Props {
   class: string;
@@ -19,7 +19,7 @@ interface Props {
   profileNewPassword: BlockInstance;
   profileRepeatNewPassword: BlockInstance;
   profileSaveButton: BlockInstance;
-  profileSidebar: BlockInstance;
+  profileSidebarButton: BlockInstance;
   emptyAvatarUrl: string;
   targetForEvents: boolean;
   events: EventsInProps;
@@ -42,7 +42,7 @@ const ProfilePasswordPage = new ProfilePassword({
   profileRepeatNewPassword,
   profileSaveButton,
   emptyAvatarUrl: context.emptyAvatarUrl,
-  profileSidebar,
+  profileSidebarButton,
   targetForEvents: true,
   events: {
     'submit': (e: Event) => {
