@@ -3,25 +3,6 @@
   width: 100%;
 }
 
-.profile-password__aside{
-  width: 64px;
-  background: #FBFBFB;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 1px #EAEAEA solid;
-  min-height: 100vh;
-}
-
-.profile-password__back-button{
-  width: 28px;
-  height: 28px;
-  border: 0;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 0;
-}
-
 .profile-password__form{
 width: 510px;
 margin-top: 100px;
@@ -36,7 +17,6 @@ margin-top: 100px;
 .profile-password__container{
   display: flex;
   flex-direction: column;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -45,7 +25,6 @@ margin-top: 100px;
   width: 130px;
   height: 130px;
   cursor: pointer;
-  display: block;
   background-color:#EFEFEF;
   border-radius: 70px;
   display: flex;
@@ -56,14 +35,14 @@ margin-top: 100px;
 }
 
 .profile-password__avatar-label:hover{
-  background: #000000;
+  background: #000;
   opacity: 0.5;
 }
 
 .profile-password__avatar-label:hover::after{
   position: absolute;
   content: 'Поменять аватар';
-  font-family: 'Inter';
+  font-family: $fontFamily;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
