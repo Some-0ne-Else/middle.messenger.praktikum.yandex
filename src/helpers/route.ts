@@ -4,6 +4,8 @@ import render from './render';
 // TODO вынести в утилсы
 const isEqual = (newPathname: string, pathname: string) => newPathname === pathname;
 
+export type RouteInstance = InstanceType<typeof Route>;
+
 class Route {
   _pathname: string;
 

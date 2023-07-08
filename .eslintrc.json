@@ -12,7 +12,7 @@
     },
     "rules": {
       "max-len": ["error", { "code": 140 }],
-      "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+      "no-underscore-dangle": ["error", { "allowAfterThis": true, "allow": ["__instance"] }],
       "class-methods-use-this": ["off"],
       "prettier/prettier": [
         "error",
