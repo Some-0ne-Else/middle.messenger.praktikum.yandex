@@ -35,3 +35,24 @@ const copyObject = (source: Indexed, destination: Indexed = {}) => {
 export function merge(lhs: Indexed, rhs: Indexed): Indexed {
   return copyObject(rhs, lhs);
 }
+
+export function set(object: Indexed | unknown, path: string, value: unknown): Indexed | unknown {
+  if (typeof path !== 'string') {
+    throw new Error('path must be string');
+  }
+  if (!isObject(object as Indexed)) {
+    return object;
+  }
+
+  const splittedPath = path.split('.');
+
+  // eslint-disable-next-line @typescript-eslint/no-shadow
+  const newObject = splittedPath.reduceRight((acc, path, index) => {
+    if (index === splittedPath.length - 1) {
+      acc = value as Indexed;
+    }
+    return { [path]: acc };
+  }, {});
+
+  return merge(object as Indexed, newObject);
+}
