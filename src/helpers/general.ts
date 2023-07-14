@@ -15,7 +15,14 @@ type Indexed<T = unknown> = {
   [key in string]: T;
 };
 
-const isObject = (value: Indexed) => typeof value === 'object' && value instanceof Object;
+const isObject = (value: unknown): value is Indexed => {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    value.constructor === Object &&
+    Object.prototype.toString.call(value) === '[object Object]'
+  );
+};
 
 const copyObject = (source: Indexed, destination: Indexed = {}) => {
   // eslint-disable-next-line no-restricted-syntax, guard-for-in
